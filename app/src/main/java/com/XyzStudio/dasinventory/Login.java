@@ -50,6 +50,11 @@ public class Login extends AppCompatActivity {
 
         users = FirebaseAuth.getInstance().getCurrentUser();
         usersRef = userDB.getInstance().getReference("Users");
+        if(users != null)
+        {
+            reload();
+        }
+
 
         //buat loading
         progressDialog = new ProgressDialog(Login.this);
