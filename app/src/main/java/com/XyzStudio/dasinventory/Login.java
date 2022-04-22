@@ -43,7 +43,6 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-
         email=findViewById(R.id.et_username);
         password=findViewById(R.id.et_password);
         btnLogin = findViewById(R.id.btn_login);
@@ -51,7 +50,6 @@ public class Login extends AppCompatActivity {
 
         users = FirebaseAuth.getInstance().getCurrentUser();
         usersRef = userDB.getInstance().getReference("Users");
-        uid = users.getUid();
 
         //buat loading
         progressDialog = new ProgressDialog(Login.this);
@@ -76,12 +74,13 @@ public class Login extends AppCompatActivity {
 
                 if (task.isSuccessful()&&task.getResult()!=null){
 
-
+                    users = FirebaseAuth.getInstance().getCurrentUser();
+                    usersRef = userDB.getInstance().getReference("Users");
                     usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (!snapshot.hasChild(uid))
-                                usersRef.child(uid).child("profile").child("nama").setValue("UserName");
+                            if (!snapshot.hasChild(users.getUid()))
+                                usersRef.child(users.getUid()).child("profile").child("nama").setValue("UserName");
 
 
                         }
