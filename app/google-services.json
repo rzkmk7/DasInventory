@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1015646143752",
+    "firebase_url": "https://dasinventory-12ce9-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "dasinventory-12ce9",
+    "storage_bucket": "dasinventory-12ce9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015646143752:android:53726f477479f2b4b0d8bd",
+        "android_client_info": {
+          "package_name": "com.XyzStudio.dasinventory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1015646143752-5rlmvqic7jngbaghbhe72teg5qom5bii.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.XyzStudio.dasinventory",
+            "certificate_hash": "314ecc09ccf6c731d0a0861f5f4354b5bb46522c"
+          }
+        },
+        {
+          "client_id": "1015646143752-ukqaqtd8jroer0tppnqch8p8eb2n8nak.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaS680aWMChgXCMwBjLyZfuLcS3e12DE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1015646143752-ukqaqtd8jroer0tppnqch8p8eb2n8nak.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

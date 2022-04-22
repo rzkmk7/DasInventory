@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgdefault"
+    tools:context=".MainActivity">
+
+    <ListView
+        android:layout_width="245dp"
+        android:layout_height="510dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="141dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="80dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="347dp"
+        android:layout_marginTop="666dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="67dp"
+        android:backgroundTint="#0f3498"
+        />
+
+
+</RelativeLayout>
