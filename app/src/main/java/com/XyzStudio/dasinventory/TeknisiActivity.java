@@ -90,9 +90,9 @@ public class TeknisiActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                FormLaporan formLaporan = new FormLaporan();
+           /*     FormLaporan formLaporan = new FormLaporan();
                 formLaporan.show(getSupportFragmentManager(),"form");
-
+*/
             }
         });
     }
