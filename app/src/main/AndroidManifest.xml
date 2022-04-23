@@ -19,6 +19,9 @@
             android:name=".EditProfile"
             android:exported="false" />
         <activity
+            android:name=".FormLaporan"
+            android:exported="false" />
+        <activity
             android:name=".TeknisiActivity"
             android:exported="true" />
         <activity
