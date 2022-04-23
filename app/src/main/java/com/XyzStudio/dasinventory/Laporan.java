@@ -1,65 +1,50 @@
 package com.XyzStudio.dasinventory;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
+public class Laporan extends AppCompatActivity {
 
-public class FormLaporan extends DialogFragment {
     String tgl_laporan,tempat_laporan;
 
     public String uid;
     public FirebaseDatabase laporanDB ;
-   public DatabaseReference laporanRef = laporanDB.getInstance().getReference("Users");
-   public FirebaseUser userLaporan =  FirebaseAuth.getInstance().getCurrentUser();
-
-
-
-    public FormLaporan() {
-        this.tgl_laporan = tgl_laporan;
-        this.tempat_laporan = tempat_laporan;
-
-    }
+    public DatabaseReference laporanRef = laporanDB.getInstance().getReference("Users");
+    public FirebaseUser userLaporan =  FirebaseAuth.getInstance().getCurrentUser();
 
     TextView et_tgl_laporan;
     TextView et_tempat_laporan;
 
     Button btn_laporan;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-       final View view = inflater.inflate(R.layout.activity_form_laporan,container,false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_laporan);
 
-       uid = userLaporan.getUid();
+        uid = userLaporan.getUid();
 
-       et_tgl_laporan = view.findViewById(R.id.et_tgl_laporan);
-        et_tempat_laporan = view.findViewById(R.id.et_tempat_laporan);
-        btn_laporan = view.findViewById(R.id.btn_laporan);
+        et_tgl_laporan = findViewById(R.id.et_tgl_laporan);
+        et_tempat_laporan = findViewById(R.id.et_tempat_laporan);
+        btn_laporan = findViewById(R.id.btn_laporan);
         et_tgl_laporan.setText(tgl_laporan);
         et_tempat_laporan.setText(tempat_laporan);
 
@@ -79,13 +64,13 @@ public class FormLaporan extends DialogFragment {
                         @Override
                         public void onSuccess(Void aVoid) {
 
-                            Toast.makeText(view.getContext(), "Data tersimpan", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Data tersimpan", Toast.LENGTH_SHORT).show();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Log.d("ad",tgl_laporan);
-                            Toast.makeText(view.getContext(), "Data gagal tersimpan", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Data gagal tersimpan", Toast.LENGTH_SHORT).show();
 
                         }
 
@@ -93,27 +78,12 @@ public class FormLaporan extends DialogFragment {
                 }
             }
         });
-
-
-        return view;
-    }
-
-    public void onStart()
-    {
-        super.onStart();
-        Dialog dialog = getDialog();
-        if(dialog != null)
-        {
-            dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        }
     }
 
     private void input(EditText txt, String s){
-    {
-        txt.setError(s+ "tidak boleh kosong");
-        txt.requestFocus();
-    }
+        {
+            txt.setError(s+ "tidak boleh kosong");
+            txt.requestFocus();
         }
-  }
-
-
+    }
+}

@@ -80,7 +80,7 @@ public class Home extends AppCompatActivity {
 
         btn_laporan.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(Home.this,Inventory.class));
+                startActivity(new Intent(Home.this,Laporan.class));
             }
         });
     }
