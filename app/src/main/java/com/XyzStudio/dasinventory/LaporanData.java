@@ -1,11 +1,15 @@
 package com.XyzStudio.dasinventory;
 
 public class LaporanData {
-    public String tgl_laporan, tempat_laporan;
+    public String tgl_laporan;
+    public String tempat_laporan;
 
-    public LaporanData()
-    {
+    public LaporanData(){
 
+    }
+     public LaporanData(String tgl_laporan, String tempat_laporan) {
+        this.tgl_laporan = tgl_laporan;
+        this.tempat_laporan = tempat_laporan;
     }
 
     public String getTgl_laporan() {

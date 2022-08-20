@@ -23,9 +23,14 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class FormLaporan extends AppCompatActivity {
 
+ /*   public FormLaporan(String tgl_laporan, String tempat_laporan) {
+        this.tgl_laporan = tgl_laporan;
+        this.tempat_laporan = tempat_laporan;
+    }
+*/
     String tgl_laporan,tempat_laporan;
 
-   /* public String uid;
+    public String uid;
     public FirebaseDatabase laporanDB ;
     public DatabaseReference laporanRef = laporanDB.getInstance().getReference("Users");
     public FirebaseUser userLaporan =  FirebaseAuth.getInstance().getCurrentUser();
@@ -33,25 +38,27 @@ public class FormLaporan extends AppCompatActivity {
     TextView et_tgl_laporan;
     TextView et_tempat_laporan;
 
-    Button btn_laporan;*/
+    Button btn_laporan;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_laporan);
-       /* uid = userLaporan.getUid();*/
+        uid = userLaporan.getUid();
 
-        /*et_tgl_laporan = findViewById(R.id.et_tgl_laporan);
+        et_tgl_laporan = findViewById(R.id.et_tgl_laporan);
         et_tempat_laporan = findViewById(R.id.et_tempat_laporan);
         btn_laporan = findViewById(R.id.btn_laporan);
-        et_tgl_laporan.setText(tgl_laporan);
-        et_tempat_laporan.setText(tempat_laporan);
+        /*et_tgl_laporan.setText(tgl_laporan);
+        et_tempat_laporan.setText(tempat_laporan);*/
 
         btn_laporan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String tgl_laporan = et_tgl_laporan.getText().toString();
                 String tempat_laporan = et_tempat_laporan.getText().toString();
+
 
                 if (TextUtils.isEmpty(tgl_laporan)) {
                     input((EditText) et_tgl_laporan, "tgl");
@@ -76,13 +83,13 @@ public class FormLaporan extends AppCompatActivity {
                     });
                 }
             }
-        });*/
+        });
     }
 
-   /* private void input(EditText txt, String s){
+    private void input(EditText txt, String s){
         {
             txt.setError(s+ "tidak boleh kosong");
             txt.requestFocus();
         }
-    }*/
+    }
 }

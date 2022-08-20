@@ -79,6 +79,7 @@ public class Laporan extends AppCompatActivity {
                 LaporanData laporan = snapshot.getValue(LaporanData.class);
                 laporanArrayList.add(laporan);
                 adapter.notifyDataSetChanged();
+                
             }
 
             @Override

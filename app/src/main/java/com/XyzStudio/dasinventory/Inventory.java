@@ -6,10 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Inventory extends AppCompatActivity {
+
     FloatingActionButton fab_add_inventory;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,8 +22,12 @@ public class Inventory extends AppCompatActivity {
 
         fab_add_inventory.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(Inventory.this,FormInventory.class));
+               /* startActivity(new Intent(Inventory.this,FormInventory.class));*/
+                FormInventory formInventory = new FormInventory(/*"l"*/);
+                formInventory.show(getSupportFragmentManager(), "activity_form_inventory");
             }
         });
     }
+
+
 }

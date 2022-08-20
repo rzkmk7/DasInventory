@@ -113,7 +113,7 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/ic_edit_profile" />
+                                android:src="@drawable/ic_inventory" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -122,11 +122,11 @@
                                 android:layout_centerInParent="true"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="10dp"
-                                android:text="Edit Porfile"
+                                android:text="Inventory"
                                 android:textSize="18dp" />
 
                             <Button
-                                android:id="@+id/btn_edit_profile2"
+                                android:id="@+id/btn_inventory"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@android:color/transparent" />

@@ -22,7 +22,7 @@ public class Home extends AppCompatActivity {
 
     TextView profileName;
     Button btnEditProfile;
-    Button btn_inventori;
+    Button btn_inventory;
     Button btn_laporan;
 
     private String uid;
@@ -38,7 +38,7 @@ public class Home extends AppCompatActivity {
 
         btnEditProfile = findViewById(R.id.btnEditProfile);
         profileName = findViewById(R.id.profileName);
-        btn_inventori = findViewById(R.id.btn_inventori);
+        btn_inventory = findViewById(R.id.btn_inventory);
         btn_laporan = findViewById(R.id.btn_laporan);
 
         users = FirebaseAuth.getInstance().getCurrentUser();
@@ -72,7 +72,7 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        btn_inventori.setOnClickListener(new View.OnClickListener() {
+        btn_inventory.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(Home.this,Inventory.class));
             }
