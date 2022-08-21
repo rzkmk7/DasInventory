@@ -24,7 +24,7 @@ public class InventoryItem extends AppCompatActivity {
             public void onClick(View v) {
                 Log.i("ttt","asdaasdasd");
                 /* startActivity(new Intent(Inventory.this,FormInventory.class));*/
-                FragItemInv fragItemInv = new FragItemInv();
+                FragItemInv fragItemInv = new FragItemInv("","","","");
                 fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
             }
     });

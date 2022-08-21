@@ -17,16 +17,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class FragItemInv extends DialogFragment {
-   /* public FormInventory(String a) {
-        this.a = a;
+    public FragItemInv(String namaBarang, String jmlStok, String type, String ket) {
+        this.namaBarang = namaBarang;
+        this.jmlStok = jmlStok;
+        this.type = type;
+        this.ket = ket;
     }
 
-    String a;*/
-
+    private String namaBarang;
+    private String jmlStok;
+    private String type;
+    private String ket;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState){
@@ -39,6 +47,12 @@ public class FragItemInv extends DialogFragment {
         TextView ed_type = view.findViewById(R.id.ed_type);
         TextView ed_ket = view.findViewById(R.id.ed_ket);
         Button ed_btn_invSave = view.findViewById(R.id.ed_btn_invSave);
+
+        ed_namaBarang.setText(this.namaBarang);
+        ed_jmlStok.setText(this.jmlStok);
+        ed_type.setText(this.type);
+        ed_ket.setText(this.ket);
+
 
         ed_btn_invSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,13 +69,14 @@ public class FragItemInv extends DialogFragment {
                 }else if (TextUtils.isEmpty(type)){
                     input((EditText) ed_type, "type" );
                 }else {
-                    database.child("Inventory").push().setValue(new InventoryData(namaBarang, jmlStok, type, ket)).addOnSuccessListener((new OnSuccessListener<Void>() {
+//
+                    database.child("Inventory").setValue(new InventoryData(namaBarang, jmlStok, type, ket)).addOnSuccessListener((new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();
                         }
                     }));
-
+//
                 }
             }
         });

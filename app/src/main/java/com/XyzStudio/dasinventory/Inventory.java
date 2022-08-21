@@ -50,7 +50,7 @@ public class Inventory extends AppCompatActivity {
             @Override
             public void onClick(Integer msg){
                 Log.d("asd", inventoryArrayList.get(msg).getNamaBarang());
-                FragItemInv fragItemInv = new FragItemInv();
+                FragItemInv fragItemInv = new FragItemInv(inventoryArrayList.get(msg).getNamaBarang(),inventoryArrayList.get(msg).getJmlStok(),inventoryArrayList.get(msg).getType(),inventoryArrayList.get(msg).getKet());
                 fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
             }
         });
@@ -62,7 +62,7 @@ public class Inventory extends AppCompatActivity {
 
         fab_add_inventory.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-               /* startActivity(new Intent(Inventory.this,FormInventory.class));*/
+                /* startActivity(new Intent(Inventory.this,FormInventory.class));*/
                 FormInventory formInventory = new FormInventory();
                 formInventory.show(getSupportFragmentManager(), "activity_form_inventory");
             }
