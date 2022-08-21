@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
@@ -67,7 +68,7 @@ public class Inventory extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 InventoryData inventory = snapshot.getValue(InventoryData.class);
                 inventoryArrayList.add(inventory);
-                /*adapter.notifyDataSetChanged();*/ //teeuingggg
+                adapter.notifyDataSetChanged(); //teeuingggg
 
             }
 

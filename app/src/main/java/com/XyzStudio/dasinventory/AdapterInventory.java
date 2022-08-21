@@ -25,7 +25,7 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
     }
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.laporan_item, null, true);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_inventory_item, null, true);
 
         TextView tv_namaBarang = view.findViewById(R.id.tv_namaBarang);
         TextView tv_type = view.findViewById(R.id.tv_type);
