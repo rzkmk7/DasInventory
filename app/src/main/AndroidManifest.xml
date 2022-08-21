@@ -13,6 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DasInventory">
         <activity
+            android:name=".FragItemInv"
+            android:exported="false"
+            android:label="@string/title_activity_frag_item_inv"
+            android:theme="@style/Theme.DasInventory.NoActionBar" />
+        <activity
             android:name=".InventoryItem"
             android:exported="false" />
         <activity

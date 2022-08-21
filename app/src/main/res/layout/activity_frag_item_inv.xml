@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="1000dp"
+    android:minHeight="450dp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="#0f3498">
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:text="Item Barang"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+        <EditText
+            android:id="@+id/ed_namaBarang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Barang"
+            android:inputType="textCapSentences"/>
+        <EditText
+            android:id="@+id/ed_jmlStok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Jumlah Barang"
+            android:inputType="number"/>
+        <EditText
+            android:id="@+id/ed_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type"
+            android:inputType="textCapSentences"/>
+        <EditText
+            android:id="@+id/ed_ket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Keterangan"
+            android:inputType="textCapSentences"/>
+        <Button
+            android:id="@+id/ed_btn_invSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Save"/>
+
+
+
+    </LinearLayout>
+</LinearLayout>
