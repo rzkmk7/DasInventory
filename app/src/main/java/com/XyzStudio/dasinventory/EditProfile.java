@@ -86,6 +86,7 @@ public class EditProfile extends AppCompatActivity {
                usersRef.child(uid).child("profile").child("nama").setValue(nama.getText().toString());
                 Toast.makeText(getApplicationContext(), "berhasil disimpan", Toast.LENGTH_SHORT).show();
 //                validateAndsave();
+
             }
         });
 

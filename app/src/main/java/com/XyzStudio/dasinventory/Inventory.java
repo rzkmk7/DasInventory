@@ -50,7 +50,7 @@ public class Inventory extends AppCompatActivity {
             @Override
             public void onClick(Integer msg){
                 Log.d("asd", inventoryArrayList.get(msg).getNamaBarang());
-                FragItemInv fragItemInv = new FragItemInv(inventoryArrayList.get(msg).getNamaBarang(),inventoryArrayList.get(msg).getJmlStok(),inventoryArrayList.get(msg).getType(),inventoryArrayList.get(msg).getKet());
+                FragItemInv fragItemInv = new FragItemInv(inventoryArrayList.get(msg).getNamaBarang(),inventoryArrayList.get(msg).getJmlStok(),inventoryArrayList.get(msg).getType(),inventoryArrayList.get(msg).getKet(),inventoryArrayList.get(msg).getKey());
                 fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
             }
         });
@@ -74,7 +74,9 @@ public class Inventory extends AppCompatActivity {
         ref.addChildEventListener(new ChildEventListener(){
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Log.d("tag",snapshot.getKey());
                 InventoryData inventory = snapshot.getValue(InventoryData.class);
+                inventory.setKey(snapshot.getKey());
                 inventoryArrayList.add(inventory);
                 adapter.notifyDataSetChanged(); //teeuingggg
 

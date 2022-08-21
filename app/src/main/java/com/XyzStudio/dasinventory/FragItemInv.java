@@ -17,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,17 +26,26 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class FragItemInv extends DialogFragment {
-    public FragItemInv(String namaBarang, String jmlStok, String type, String ket) {
+    public FragItemInv(String namaBarang, String jmlStok, String type, String ket, String key) {
         this.namaBarang = namaBarang;
         this.jmlStok = jmlStok;
         this.type = type;
         this.ket = ket;
+        this.key = key;
     }
 
     private String namaBarang;
     private String jmlStok;
     private String type;
     private String ket;
+    private String key;
+
+    private String uidInv;
+
+//    public DatabaseReference invRef;
+//    public FirebaseDatabase invDB;
+//*/
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState){
@@ -53,6 +64,9 @@ public class FragItemInv extends DialogFragment {
         ed_type.setText(this.type);
         ed_ket.setText(this.ket);
 
+        /*inv = FirebaseAuth.getInstance().getCurrentUser();
+        invRef = userDB.getInstance().getReference("Users");
+        inv = users.getUid();*/
 
         ed_btn_invSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,14 +84,17 @@ public class FragItemInv extends DialogFragment {
                     input((EditText) ed_type, "type" );
                 }else {
 //
-                    database.child("Inventory").setValue(new InventoryData(namaBarang, jmlStok, type, ket)).addOnSuccessListener((new OnSuccessListener<Void>() {
+
+
+                    database.child("Inventory").child(key).setValue(new InventoryData(namaBarang, jmlStok, type, ket)).addOnSuccessListener((new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();
                         }
                     }));
-//
+/
                 }
+
             }
         });
 
@@ -85,6 +102,7 @@ public class FragItemInv extends DialogFragment {
 
 
     }
+
     private void input(EditText txt, String s){
         txt.setError(s+"tidak boleh kosong");
         txt.requestFocus();

@@ -17,6 +17,16 @@ public class InventoryData {
     private String type;
     private String ket;
 
+    public String getKey() {
+        return Key;
+    }
+
+    public void setKey(String key) {
+        Key = key;
+    }
+
+    private String Key;
+
     public String getNamaBarang() {
         return namaBarang;
     }
