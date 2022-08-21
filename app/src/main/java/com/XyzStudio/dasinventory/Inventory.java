@@ -67,7 +67,7 @@ public class Inventory extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 InventoryData inventory = snapshot.getValue(InventoryData.class);
                 inventoryArrayList.add(inventory);
-                /*adapter.notifyDataSetChanged();*/ //teeuing
+                /*adapter.notifyDataSetChanged();*/ //teeuingggg
 
             }
 
