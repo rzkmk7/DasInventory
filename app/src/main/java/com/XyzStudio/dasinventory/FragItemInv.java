@@ -34,11 +34,11 @@ public class FragItemInv extends DialogFragment {
 
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
-        TextView ed_namaBarang = view.findViewById(R.id.et_namaBarang);
-        TextView ed_jmlStok = view.findViewById(R.id.et_jmlStok);
-        TextView ed_type = view.findViewById(R.id.et_type);
-        TextView ed_ket = view.findViewById(R.id.et_ket);
-        Button ed_btn_invSave = view.findViewById(R.id.btn_invSave);
+        TextView ed_namaBarang = view.findViewById(R.id.ed_namaBarang);
+        TextView ed_jmlStok = view.findViewById(R.id.ed_jmlStok);
+        TextView ed_type = view.findViewById(R.id.ed_type);
+        TextView ed_ket = view.findViewById(R.id.ed_ket);
+        Button ed_btn_invSave = view.findViewById(R.id.ed_btn_invSave);
 
         ed_btn_invSave.setOnClickListener(new View.OnClickListener() {
             @Override

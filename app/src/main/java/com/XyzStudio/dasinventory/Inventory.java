@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 
@@ -45,7 +46,14 @@ public class Inventory extends AppCompatActivity {
         context = this;
         fab_add_inventory = findViewById(R.id.fab_add_inventory);
 
-        adapter = new AdapterInventory(this, inventoryArrayList);
+        adapter = new AdapterInventory(this, inventoryArrayList, new AdapterInventory.OnClickListener(){
+            @Override
+            public void onClick(Integer msg){
+                Log.d("asd", inventoryArrayList.get(msg).getNamaBarang());
+                FragItemInv fragItemInv = new FragItemInv();
+                fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
+            }
+        });
         adapter.arrayListInventory.clear();
 
         listView = findViewById(R.id.ListInventory);
