@@ -6,7 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -36,6 +40,7 @@ public class Login extends AppCompatActivity {
     public DatabaseReference usersRef;
     public FirebaseDatabase userDB;
     private FirebaseUser users;
+    boolean passwordVisible;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +74,37 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "isi dulu", Toast.LENGTH_SHORT).show();
             }
         });
+
+        password.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int Right=2;
+                if(event.getAction()==MotionEvent.ACTION_UP){
+                    if(event.getRawX()>=password.getRight()-password.getCompoundDrawables()[Right].getBounds().width()){
+                        int selection = password.getSelectionEnd();
+                        if(passwordVisible){
+                            //setdrawable
+                            password.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_visibility_off_24,0);
+                            //for hide password
+                            password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                            passwordVisible=false;
+                        }else{
+                            //setdrawable
+                            password.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_visibility_24,0);
+                            //for show password
+                            password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                            passwordVisible=true;
+                        }
+                        password.setSelection(selection);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
     }
+
+
 
     public void login(String email, String password){
         //coding login

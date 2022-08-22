@@ -17,7 +17,7 @@ public class BillingItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Button ed_frag_billing;
-        Button hitungBil;
+        ImageButton hitungBil;
         ed_frag_billing = findViewById(R.id.rr);
         hitungBil = findViewById(R.id.hitungBil);
 
