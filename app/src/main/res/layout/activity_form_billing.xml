@@ -28,31 +28,31 @@
         android:orientation="vertical"
         android:padding="20dp">
         <EditText
-            android:id="@+id/et_namaBarang"
+            android:id="@+id/et_namaBarangBil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nama Barang"
+            android:hint="Nama BarangBil"
             android:inputType="textCapSentences"/>
         <EditText
-            android:id="@+id/et_jmlStok"
+            android:id="@+id/et_jmlStokBil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Jumlah Barang"
             android:inputType="number"/>
         <EditText
-            android:id="@+id/et_type"
+            android:id="@+id/et_typeBil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Type"
             android:inputType="textCapSentences"/>
         <EditText
-            android:id="@+id/et_ket"
+            android:id="@+id/et_ketBil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Keterangan"
             android:inputType="textCapSentences"/>
         <Button
-            android:id="@+id/btn_invSave"
+            android:id="@+id/btn_bilSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

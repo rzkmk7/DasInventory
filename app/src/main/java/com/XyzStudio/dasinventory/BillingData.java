@@ -2,6 +2,11 @@ package com.XyzStudio.dasinventory;
 
 public class BillingData {
 
+    private String namaBarangBil;
+    private String jmlStokBil;
+    private String typeBil;
+    private String ketBil;
+
     public BillingData(){
 
     }
@@ -52,10 +57,7 @@ public class BillingData {
         this.ketBil = ketBil;
     }
 
-    private String namaBarangBil;
-    private String jmlStokBil;
-    private String typeBil;
-    private String ketBil;
+
 
 
 

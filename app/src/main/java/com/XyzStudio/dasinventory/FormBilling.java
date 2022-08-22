@@ -34,26 +34,26 @@ public class FormBilling extends DialogFragment {
 
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
-        TextView et_namaBarang = view.findViewById(R.id.et_namaBarang);
-        TextView et_jmlStok = view.findViewById(R.id.et_jmlStok);
-        TextView et_type = view.findViewById(R.id.et_type);
-        TextView et_ket = view.findViewById(R.id.et_ket);
-        Button btn_invSave = view.findViewById(R.id.btn_invSave);
+        TextView et_namaBarangBil = view.findViewById(R.id.et_namaBarangBil);
+        TextView et_jmlStokBil = view.findViewById(R.id.et_jmlStokBil);
+        TextView et_typeBil = view.findViewById(R.id.et_typeBil);
+        TextView et_ketBil = view.findViewById(R.id.et_ketBil);
+        Button btn_bilSave = view.findViewById(R.id.btn_bilSave);
 
-        btn_invSave.setOnClickListener(new View.OnClickListener() {
+        btn_bilSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String namaBarang = et_namaBarang.getText().toString();
-                String jmlStok = et_jmlStok.getText().toString();
-                String ket = et_ket.getText().toString();
-                String type = et_type.getText().toString();
+                String namaBarang = et_namaBarangBil.getText().toString();
+                String jmlStok = et_jmlStokBil.getText().toString();
+                String ket = et_ketBil.getText().toString();
+                String type = et_typeBil.getText().toString();
 
                 if(TextUtils.isEmpty(namaBarang)){
-                    input((EditText) et_namaBarang, "namaBarang" );
+                    input((EditText) et_namaBarangBil, "namaBarang" );
                 }else if (TextUtils.isEmpty(jmlStok)){
-                    input((EditText) et_jmlStok, "jmlStok" );
+                    input((EditText) et_jmlStokBil, "jmlStok" );
                 }else if (TextUtils.isEmpty(type)){
-                    input((EditText) et_type, "type" );
+                    input((EditText) et_typeBil, "type" );
                 }else {
                     database.child("Billing").push().setValue(new InventoryData(namaBarang, jmlStok, type, ket)).addOnSuccessListener((new OnSuccessListener<Void>() {
                         @Override

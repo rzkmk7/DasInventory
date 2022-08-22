@@ -18,7 +18,7 @@ public class BillingItem extends AppCompatActivity {
 
         Button ed_frag_billing;
 
-        ed_frag_billing = findViewById(R.id.test123);
+        ed_frag_billing = findViewById(R.id.rr);
 
         ed_frag_billing.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

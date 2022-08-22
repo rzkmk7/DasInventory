@@ -51,7 +51,7 @@ public class BillingMachine extends AppCompatActivity {
             public void onClick(Integer msg){
                 Log.d("asd", billingArrayList.get(msg).getNamaBarangBil());
                 FragBilling fragBilling = new FragBilling(billingArrayList.get(msg).getNamaBarangBil(),billingArrayList.get(msg).getJmlStokBil(),billingArrayList.get(msg).getTypeBil(),billingArrayList.get(msg).getKetBil(),billingArrayList.get(msg).getKey());
-                fragBilling.show(getSupportFragmentManager(), "activity_frag_billing");
+                fragBilling.show(getSupportFragmentManager(), "activity_frag_bil");
             }
         });
         adapter.arrayListBilling.clear();
@@ -78,7 +78,7 @@ public class BillingMachine extends AppCompatActivity {
                 BillingData billing = snapshot.getValue(BillingData.class);
                 billing.setKey(snapshot.getKey());
                 billingArrayList.add(billing);
-                adapter.notifyDataSetChanged(); //teeuingggg
+//                adapter.notifyDataSetChanged(); //teeuingggg
 
             }
 
