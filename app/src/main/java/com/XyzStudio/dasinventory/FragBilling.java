@@ -25,19 +25,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class FragItemInv extends DialogFragment {
-    public FragItemInv(String namaBarang, String jmlStok, String type, String ket, String key) {
-        this.namaBarang = namaBarang;
-        this.jmlStok = jmlStok;
-        this.type = type;
-        this.ket = ket;
+public class FragBilling extends DialogFragment {
+    public FragBilling(String namaBarang, String jmlStok, String type, String ket, String key) {
+        this.namaBarangBil = namaBarangBil ;
+        this.jmlStokBil  = jmlStokBil ;
+        this.typeBil  = typeBil ;
+        this.ketBil  = ketBil ;
         this.key = key;
     }
 
-    private String namaBarang;
-    private String jmlStok;
-    private String type;
-    private String ket;
+    private String namaBarangBil ;
+    private String jmlStokBil ;
+    private String typeBil ;
+    private String ketBil ;
     private String key;
 
     private String uidInv;
@@ -49,44 +49,44 @@ public class FragItemInv extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState){
-        final View view = inflater.inflate(R.layout.activity_frag_item_inv, container, false);
+        final View view = inflater.inflate(R.layout.activity_frag_billing, container, false);
 
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
-        TextView ed_namaBarang = view.findViewById(R.id.ed_namaBarang);
-        TextView ed_jmlStok = view.findViewById(R.id.ed_jmlStok);
-        TextView ed_type = view.findViewById(R.id.ed_type);
-        TextView ed_ket = view.findViewById(R.id.ed_ket);
-        Button ed_btn_invSave = view.findViewById(R.id.ed_btn_invSave);
+        TextView ed_namaBarangBil  = view.findViewById(R.id.ed_namaBarangBil );
+        TextView ed_jmlStokBil  = view.findViewById(R.id.ed_jmlStokBil );
+        TextView ed_typeBil  = view.findViewById(R.id.ed_typeBil );
+        TextView ed_ketBil  = view.findViewById(R.id.ed_ketBil );
+        Button ed_btn_bilSave = view.findViewById(R.id.ed_btn_bilSave );
 
-        ed_namaBarang.setText(this.namaBarang);
-        ed_jmlStok.setText(this.jmlStok);
-        ed_type.setText(this.type);
-        ed_ket.setText(this.ket);
+        ed_namaBarangBil.setText(this.namaBarangBil );
+        ed_jmlStokBil.setText(this.jmlStokBil );
+        ed_typeBil.setText(this.typeBil );
+        ed_ketBil.setText(this.ketBil );
 
         /*inv = FirebaseAuth.getInstance().getCurrentUser();
         invRef = userDB.getInstance().getReference("Users");
         inv = users.getUid();*/
 
-        ed_btn_invSave.setOnClickListener(new View.OnClickListener() {
+        ed_btn_bilSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String namaBarang = ed_namaBarang.getText().toString();
-                String jmlStok = ed_jmlStok.getText().toString();
-                String ket = ed_ket.getText().toString();
-                String type = ed_type.getText().toString();
+                String namaBarangBil = ed_namaBarangBil .getText().toString();
+                String jmlStokBil = ed_jmlStokBil .getText().toString();
+                String ketBil = ed_ketBil .getText().toString();
+                String typeBil = ed_typeBil .getText().toString();
 
-                if(TextUtils.isEmpty(namaBarang)){
-                    input((EditText) ed_namaBarang, "namaBarang" );
-                }else if (TextUtils.isEmpty(jmlStok)){
-                    input((EditText) ed_jmlStok, "jmlStok" );
-                }else if (TextUtils.isEmpty(type)){
-                    input((EditText) ed_type, "type" );
+                if(TextUtils.isEmpty(namaBarangBil)){
+                    input((EditText) ed_namaBarangBil , "namaBarang" );
+                }else if (TextUtils.isEmpty(jmlStokBil)){
+                    input((EditText) ed_jmlStokBil , "jmlStok" );
+                }else if (TextUtils.isEmpty(typeBil)){
+                    input((EditText) ed_typeBil , "type" );
                 }else {
 //
 
 
-                    database.child("Inventory").child(key).setValue(new InventoryData(namaBarang, jmlStok, type, ket)).addOnSuccessListener((new OnSuccessListener<Void>() {
+                    database.child("Billing").child(key).setValue(new BillingData(namaBarangBil, jmlStokBil, typeBil, ketBil)).addOnSuccessListener((new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();

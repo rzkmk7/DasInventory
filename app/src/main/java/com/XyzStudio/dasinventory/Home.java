@@ -24,6 +24,8 @@ public class Home extends AppCompatActivity {
     Button btnEditProfile;
     Button btn_inventory;
     Button btn_laporan;
+    Button btn_billing;
+
 
     private String uid;
     public DatabaseReference usersRef;
@@ -40,6 +42,7 @@ public class Home extends AppCompatActivity {
         profileName = findViewById(R.id.profileName);
         btn_inventory = findViewById(R.id.btn_inventory);
         btn_laporan = findViewById(R.id.btn_laporan);
+        btn_billing = findViewById(R.id.btn_billing);
 
         users = FirebaseAuth.getInstance().getCurrentUser();
         usersRef = userDB.getInstance().getReference("Users");
@@ -81,6 +84,11 @@ public class Home extends AppCompatActivity {
         btn_laporan.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(Home.this,Laporan.class));
+            }
+        });
+        btn_billing.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(Home.this,BillingMachine.class));
             }
         });
     }

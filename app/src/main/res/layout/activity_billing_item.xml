@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="5dp">
+        <TextView
+            android:id="@+id/tv_namaBarangBil"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:text="Nama Barang"
+            android:gravity="center_vertical"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/tv_jmlStokBil"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:text="Stok"
+            android:gravity="center_vertical"
+            android:textSize="20sp"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:id="@+id/tv_typeBil"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:text="Type"
+            android:gravity="center_vertical"
+            android:textSize="20sp"
+            android:layout_margin="10dp"/>
+
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/test123"/>
+    <ImageButton
+        android:contentDescription="aa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:baselineAlignBottom="false"
+        android:minHeight="48dp"
+        android:src="@drawable/ic_add"
+        android:layout_marginLeft="20dp"
+        />
+    <ImageButton
+        android:contentDescription="aa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:baselineAlignBottom="false"
+        android:minHeight="48dp"
+        android:src="@drawable/ic_add"
+        android:id="@+id/ed_frag_item"
+        android:layout_marginLeft="20dp"
+        />
+</LinearLayout>
