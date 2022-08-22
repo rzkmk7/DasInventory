@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -42,6 +43,8 @@ public class Login extends AppCompatActivity {
     private FirebaseUser users;
     boolean passwordVisible;
 
+    public static String PREFS_NAME="MyPrefsFile";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +71,15 @@ public class Login extends AppCompatActivity {
         progressDialog.setCancelable(false);
 
         btnLogin.setOnClickListener(v -> {
+           /* //nyoba keep login
+            SharedPreferences sharedPreferences = getSharedPreferences(Login.PREFS_NAME,0);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+            editor.putBoolean("hasLoggedIn",true);
+            editor.commit();
+            startActivity(new Intent(Login.this,Home.class));
+            finish();
+            //nyoba keep login*/
             if(email.getText().length()>0&& password.getText().length()>0){
                 login(email.getText().toString(),password.getText().toString());
             }else{
@@ -144,8 +156,14 @@ public class Login extends AppCompatActivity {
         });
     }
 
+   /* //asalnya
     private  void reload(){
         startActivity(new Intent(getApplicationContext(),Home.class));
-    }
+    }*/
 
+    //testing keep userlogin
+    private  void reload(){
+        startActivity(new Intent(Login.this,Home.class));
+        finish();
+    }
 }

@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -32,11 +34,33 @@ public class Home extends AppCompatActivity {
     public FirebaseDatabase userDB;
     private FirebaseUser users;
 
+    private static int SPLASH_TIME_OUT=3000;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+////nyoba keep login
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                SharedPreferences sharedPreferences = getSharedPreferences(Login.PREFS_NAME,0);
+//                boolean hasLoggedIn = sharedPreferences.getBoolean("hasLoggedIn",false);
+//
+//                if(hasLoggedIn){
+//                    Intent intent = new Intent(Home.this,Home.class);
+//                    startActivity(intent);
+//                    finish();
+//                }else {
+//                    Intent intent = new Intent(Home.this,Login.class);
+//                    startActivity(intent);
+//                    finish();
+//                }
+//
+//            }
+//        },SPLASH_TIME_OUT);
+//        //nyoba keep login
 
         btnEditProfile = findViewById(R.id.btnEditProfile);
         profileName = findViewById(R.id.profileName);
@@ -62,6 +86,7 @@ public class Home extends AppCompatActivity {
 //                    profileName.setText("UserName");
 //                }
             }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
