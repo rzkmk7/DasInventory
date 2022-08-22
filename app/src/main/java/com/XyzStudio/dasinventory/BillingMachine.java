@@ -78,7 +78,7 @@ public class BillingMachine extends AppCompatActivity {
                 BillingData billing = snapshot.getValue(BillingData.class);
                 billing.setKey(snapshot.getKey());
                 billingArrayList.add(billing);
-//                adapter.notifyDataSetChanged(); //teeuingggg
+                adapter.notifyDataSetChanged(); //teeuingggg
 
             }
 

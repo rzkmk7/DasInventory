@@ -22,7 +22,7 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
     public List<InventoryData> arrayListInventory;
 
     public AdapterInventory(@NonNull Context context, List<InventoryData> arrayListInventory, OnClickListener mListener) {
-        super(context, R.layout.laporan_item, arrayListInventory);
+        super(context, R.layout.activity_inventory_item, arrayListInventory);
 
         this.context = context;
         this.arrayListInventory = arrayListInventory;

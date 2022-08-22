@@ -36,7 +36,7 @@ public class AdapterBilling<context> extends ArrayAdapter<BillingData> {
         TextView tv_typeBil = view.findViewById(R.id.tv_typeBil);
         TextView tv_jmlStokBil = view.findViewById(R.id.tv_jmlStokBil);
 
-        Button ed_frag_item = view.findViewById(R.id.test123);
+        Button ed_frag_item = view.findViewById(R.id.rr);
 
         ed_frag_item.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

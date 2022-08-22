@@ -30,7 +30,7 @@ public class FormBilling extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState){
-        final View view = inflater.inflate(R.layout.activity_form_inventory, container, false);
+        final View view = inflater.inflate(R.layout.activity_form_billing, container, false);
 
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
