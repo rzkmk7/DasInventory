@@ -17,8 +17,9 @@ public class BillingItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Button ed_frag_billing;
-
+        Button hitungBil;
         ed_frag_billing = findViewById(R.id.rr);
+        hitungBil = findViewById(R.id.hitungBil);
 
         ed_frag_billing.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -28,5 +29,13 @@ public class BillingItem extends AppCompatActivity {
                 fragBilling.show(getSupportFragmentManager(), "activity_frag_billing");
             }
         });
+        hitungBil.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                /* startActivity(new Intent(Inventory.this,FormInventory.class));*/
+                FormInventory formInventory = new FormInventory();
+                formInventory.show(getSupportFragmentManager(), "activity_hitung_billing");
+            }
+        });
+
     }
 }

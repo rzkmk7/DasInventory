@@ -43,19 +43,19 @@ public class FormBilling extends DialogFragment {
         btn_bilSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String namaBarang = et_namaBarangBil.getText().toString();
-                String jmlStok = et_jmlStokBil.getText().toString();
-                String ket = et_ketBil.getText().toString();
-                String type = et_typeBil.getText().toString();
+                String namaBarangBil = et_namaBarangBil.getText().toString();
+                String jmlStokBil = et_jmlStokBil.getText().toString();
+                String ketBil = et_ketBil.getText().toString();
+                String typeBil = et_typeBil.getText().toString();
 
-                if(TextUtils.isEmpty(namaBarang)){
+                if(TextUtils.isEmpty(namaBarangBil)){
                     input((EditText) et_namaBarangBil, "namaBarang" );
-                }else if (TextUtils.isEmpty(jmlStok)){
+                }else if (TextUtils.isEmpty(jmlStokBil)){
                     input((EditText) et_jmlStokBil, "jmlStok" );
-                }else if (TextUtils.isEmpty(type)){
+                }else if (TextUtils.isEmpty(typeBil)){
                     input((EditText) et_typeBil, "type" );
                 }else {
-                    database.child("Billing").push().setValue(new InventoryData(namaBarang, jmlStok, type, ket)).addOnSuccessListener((new OnSuccessListener<Void>() {
+                    database.child("Billing").push().setValue(new BillingData(namaBarangBil, jmlStokBil, typeBil, ketBil)).addOnSuccessListener((new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();

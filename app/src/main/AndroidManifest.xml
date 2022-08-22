@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DasInventory">
         <activity
+            android:name=".HitungBilling"
+            android:exported="false" />
+        <activity
             android:name=".FragBilling"
             android:exported="false" />
         <activity

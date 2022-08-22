@@ -26,7 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class FragBilling extends DialogFragment {
-    public FragBilling(String namaBarang, String jmlStok, String type, String ket, String key) {
+    public FragBilling(String namaBarangBil, String jmlStokBil, String typeBil, String ketBil, String key) {
         this.namaBarangBil = namaBarangBil ;
         this.jmlStokBil  = jmlStokBil ;
         this.typeBil  = typeBil ;
