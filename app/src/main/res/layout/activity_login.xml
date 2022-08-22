@@ -62,6 +62,7 @@
         android:drawableRight="@drawable/ic_baseline_visibility_off_24"
         android:paddingRight="10dp"
         android:longClickable="false"/>
+    <!--//test-->
     <Button
         android:id="@+id/btn_login"
         android:layout_width="100dp"
