@@ -59,7 +59,7 @@ public class FormInventory extends DialogFragment {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();
-                            getDialog().dismiss();
+                            dismiss();
 
                         }
                     }));

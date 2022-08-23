@@ -75,6 +75,10 @@ public class EditProfile extends AppCompatActivity {
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
+                overridePendingTransition(1, 1);
+                startActivity(getIntent());
+                overridePendingTransition(1, 1);
                 startActivity(new Intent(EditProfile.this,Home.class));
             }
         });
@@ -83,7 +87,9 @@ public class EditProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final  EditText nama = (EditText) findViewById(R.id.edtNama);
+                final  EditText jabatan = (EditText) findViewById(R.id.jabatan);
                usersRef.child(uid).child("profile").child("nama").setValue(nama.getText().toString());
+                usersRef.child(uid).child("profile").child("jabatan").setValue(jabatan.getText().toString());
                 Toast.makeText(getApplicationContext(), "berhasil disimpan", Toast.LENGTH_SHORT).show();
 //                validateAndsave();
 

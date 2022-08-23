@@ -29,6 +29,7 @@ public class Inventory extends AppCompatActivity {
     FloatingActionButton fab_add_inventory;
     ImageButton invHome;
     ImageButton delAllInv;
+    ImageButton refInv;
 
     ListView listView;
     AdapterInventory adapter;
@@ -50,6 +51,7 @@ public class Inventory extends AppCompatActivity {
         fab_add_inventory = findViewById(R.id.fab_add_inventory);
         invHome = findViewById(R.id.invHome);
         delAllInv =  findViewById(R.id.delAllInv);
+        refInv =  findViewById(R.id.refInv);
 
         adapter = new AdapterInventory(this, inventoryArrayList, new AdapterInventory.OnClickListener(){
             @Override
@@ -82,6 +84,19 @@ public class Inventory extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ref.removeValue();
+                finish();
+                overridePendingTransition(1, 1);
+                startActivity(getIntent());
+                overridePendingTransition(1, 1);
+            }
+        });
+        refInv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                overridePendingTransition(1, 1);
+                startActivity(getIntent());
+                overridePendingTransition(1, 1);
             }
         });
         getData();
