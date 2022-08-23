@@ -20,14 +20,16 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
 
     Context context;
     private OnClickListener mListener;
+    private OnClickListenerDel mListenerDel;
     public List<InventoryData> arrayListInventory;
 
-    public AdapterInventory(@NonNull Context context, List<InventoryData> arrayListInventory, OnClickListener mListener) {
+    public AdapterInventory(@NonNull Context context, List<InventoryData> arrayListInventory, OnClickListener mListener, OnClickListenerDel mListenerDel) {
         super(context, R.layout.activity_inventory_item, arrayListInventory);
 
         this.context = context;
         this.arrayListInventory = arrayListInventory;
         this.mListener = mListener;
+        this.mListenerDel = mListenerDel;
     }
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -38,10 +40,16 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
         TextView tv_jmlStok = view.findViewById(R.id.tv_jmlStok);
 
         ImageButton ed_inv = view.findViewById(R.id.ed_inv);
+        ImageButton ed_invDel = view.findViewById(R.id.ed_invDel);
 
         ed_inv.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mListener.onClick(position);
+            }
+        });
+        ed_invDel.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mListenerDel.onClick(position);
             }
         });
 
@@ -54,6 +62,9 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
     }
 
     public interface OnClickListener {
+        public void onClick(Integer message);
+    }
+    public interface OnClickListenerDel {
         public void onClick(Integer message);
     }
 }

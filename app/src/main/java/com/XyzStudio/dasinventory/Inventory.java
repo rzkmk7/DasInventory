@@ -55,12 +55,24 @@ public class Inventory extends AppCompatActivity {
         delAllInv =  findViewById(R.id.delAllInv);
         refInv =  findViewById(R.id.refInv);
 
-        adapter = new AdapterInventory(this, inventoryArrayList, new AdapterInventory.OnClickListener(){
+        adapter = new AdapterInventory(this, inventoryArrayList, new AdapterInventory.OnClickListener() {
             @Override
-            public void onClick(Integer msg){
+            public void onClick(Integer msg) {
                 Log.d("asd", inventoryArrayList.get(msg).getNamaBarang());
                 FragItemInv fragItemInv = new FragItemInv(inventoryArrayList.get(msg).getNamaBarang(),inventoryArrayList.get(msg).getJmlStok(),inventoryArrayList.get(msg).getType(),inventoryArrayList.get(msg).getKet(),inventoryArrayList.get(msg).getKey());
                 fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
+            }
+        }, new AdapterInventory.OnClickListenerDel(){
+            @Override
+            public void onClick(Integer msg){
+                // Get key
+//                Log.d("asd", inventoryArrayList.get(msg).getKey());
+                // Get namaBarang
+//                Log.d("asd", inventoryArrayList.get(msg).getJmlStok());
+                int jmlStok = Integer.parseInt(inventoryArrayList.get(msg).getJmlStok());
+                int total = jmlStok + 5;
+                Log.d("asd", String.valueOf(jmlStok));
+                Log.d("asd", String.valueOf(total));
             }
         });
         adapter.arrayListInventory.clear();
