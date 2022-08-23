@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,10 +25,12 @@ import com.google.firebase.database.ValueEventListener;
 public class Home extends AppCompatActivity {
 
     TextView profileName;
+    TextView profileJabatan;
     Button btnEditProfile;
     Button btn_inventory;
     Button btn_laporan;
     Button btn_billing;
+    ImageButton btn_logout;
 
 
     private String uid;
@@ -34,7 +38,7 @@ public class Home extends AppCompatActivity {
     public FirebaseDatabase userDB;
     private FirebaseUser users;
 
-    private static int SPLASH_TIME_OUT=3000;
+//    private static int SPLASH_TIME_OUT=3000;
 
 
     @Override
@@ -64,13 +68,16 @@ public class Home extends AppCompatActivity {
 
         btnEditProfile = findViewById(R.id.btnEditProfile);
         profileName = findViewById(R.id.profileName);
+        profileJabatan = findViewById(R.id.profileJabatan);
         btn_inventory = findViewById(R.id.btn_inventory);
         btn_laporan = findViewById(R.id.btn_laporan);
         btn_billing = findViewById(R.id.btn_billing);
+        btn_logout = findViewById(R.id.btn_logout);
 
         users = FirebaseAuth.getInstance().getCurrentUser();
         usersRef = userDB.getInstance().getReference("Users");
-        uid = users.getUid();
+        /*Login login = new Login("s")*/
+      uid = users.getUid();
 
         usersRef.child(uid).child("profile").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -80,11 +87,13 @@ public class Home extends AppCompatActivity {
                 if(userProfile != null){
                     String nama = userProfile.nama;
                     profileName.setText(nama);
+                    String jabatan = userProfile.jabatan;
+                    profileJabatan.setText(jabatan);
                 }
-//                else if (userProfile.nama = "null"){
-//                    String nama = userProfile.nama;
-//                    profileName.setText("UserName");
-//                }
+                else {
+                    usersRef.child(uid).child("profile").child("nama").setValue("Profile Name");
+                    usersRef.child(uid).child("profile").child("jabatan").setValue("Jabatan");
+                }
             }
 
 
@@ -92,6 +101,17 @@ public class Home extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(Home.this, "salah", Toast.LENGTH_SHORT).show();
 
+            }
+        });
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Log.d("logout","work");
+                /*if(uid != null)
+                {
+                    *//*String restUid = null;
+                    uid = restUid;*//*
+                }*/
+                startActivity(new Intent(Home.this,Login.class));
             }
         });
         btnEditProfile.setOnClickListener(new View.OnClickListener() {

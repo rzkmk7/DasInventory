@@ -37,13 +37,28 @@ public class Login extends AppCompatActivity {
     private ProgressDialog progressDialog; //buat loading
     private EditText email,password;
 
+   /* public Login(){
+
+    }
+    public Login(String uid) {
+        this.uid = uid;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }*/
+
     private String uid;
     public DatabaseReference usersRef;
     public FirebaseDatabase userDB;
     private FirebaseUser users;
     boolean passwordVisible;
 
-    public static String PREFS_NAME="MyPrefsFile";
+   /* public static String PREFS_NAME="MyPrefsFile";*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +73,9 @@ public class Login extends AppCompatActivity {
 
         users = FirebaseAuth.getInstance().getCurrentUser();
         usersRef = userDB.getInstance().getReference("Users");
+       /* uid = users.getUid();*/
+        /*User user = new User("","","");*/
+
         if(users != null)
         {
             reload();
@@ -87,35 +105,35 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        password.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                final int Right=2;
-                if(event.getAction()==MotionEvent.ACTION_UP){
-                    if(event.getRawX()>=password.getRight()-password.getCompoundDrawables()[Right].getBounds().width()){
-                        int selection = password.getSelectionEnd();
-                        if(passwordVisible){
-                            //setdrawable wkwk
-                            password.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_visibility_off_24,0);
-                            //for hide password
-                            password.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                            passwordVisible=false;
-                        }else{
-                            //setdrawablewkwk
-                            password.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_visibility_24,0);
-                            //for show password
-                            password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                            passwordVisible=true;
-                        }
-                        password.setSelection(selection);
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
-    }
 
+    password.setOnTouchListener(new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            final int Right=2;
+            if(event.getAction()==MotionEvent.ACTION_UP){
+                if(event.getRawX()>=password.getRight()-password.getCompoundDrawables()[Right].getBounds().width()){
+                    int selection = password.getSelectionEnd();
+                    if(passwordVisible){
+                        //setdrawable wkwk
+                        password.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_visibility_off_24,0);
+                        //for hide password
+                        password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                        passwordVisible=false;
+                    }else{
+                        //setdrawablewkwk
+                        password.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_visibility_24,0);
+                        //for show password
+                        password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                        passwordVisible=true;
+                    }
+                    password.setSelection(selection);
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
+}
 
 
     public void login(String email, String password){
@@ -133,6 +151,7 @@ public class Login extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (!snapshot.hasChild(users.getUid()))
                                 usersRef.child(users.getUid()).child("profile").child("nama").setValue("UserName");
+                            usersRef.child(users.getUid()).child("profile").child("jabatan").setValue("jabatan");
 
 
                         }
@@ -149,6 +168,7 @@ public class Login extends AppCompatActivity {
 //                    progressDialog.setMessage("silakan tunggu");
 //                    progressDialog.setCancelable(false);
                     reload();
+                   /* startActivity(new Intent(Login.this,Home.class));*/
                 }else{
                     Toast.makeText(getApplicationContext(), "gagal", Toast.LENGTH_SHORT).show();
                 }
@@ -156,14 +176,15 @@ public class Login extends AppCompatActivity {
         });
     }
 
-   /* //asalnya
+    //asalnya
     private  void reload(){
+
         startActivity(new Intent(getApplicationContext(),Home.class));
-    }*/
+    }
 
     //testing keep userlogin
-    private  void reload(){
+    /*private  void reload(){
         startActivity(new Intent(Login.this,Home.class));
         finish();
-    }
+    }*/
 }
