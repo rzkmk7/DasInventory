@@ -114,6 +114,8 @@ public class Home extends AppCompatActivity {
                     uid = restUid;
                     Log.d("logout",uid);
                 }*/
+
+                FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(Home.this,Login.class));
             }
         });

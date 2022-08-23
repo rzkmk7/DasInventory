@@ -69,25 +69,26 @@ public class Login extends AppCompatActivity {
         email=findViewById(R.id.et_username);
         password=findViewById(R.id.et_password);
         btnLogin = findViewById(R.id.btn_login);
-          = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         users = FirebaseAuth.getInstance().getCurrentUser();
         usersRef = userDB.getInstance().getReference("Users");
-       /* uid = users.getUid();*/
+        /*uid = users.getUid();*/
+//      Log.d("uidss",users.getUid());
         /*User user = new User("","","");*/
 
         if(users != null)
         {
             reload();
         }
-
-
-        //buat loading
-        progressDialog = new ProgressDialog(Login.this);
-        progressDialog.setTitle("Loading");
-        progressDialog.setMessage("silakan tunggu");
-        progressDialog.setCancelable(false);
-
+//
+//
+//        //buat loading
+//        progressDialog = new ProgressDialog(Login.this);
+//        progressDialog.setTitle("Loading");
+//        progressDialog.setMessage("silakan tunggu");
+//        progressDialog.setCancelable(false);
+//
         btnLogin.setOnClickListener(v -> {
             /*if(uid != null)
             {
@@ -95,25 +96,25 @@ public class Login extends AppCompatActivity {
                 uid = restUid;
                 Log.d("logout",uid);
             }*/
-           /* //nyoba keep login
-            SharedPreferences sharedPreferences = getSharedPreferences(Login.PREFS_NAME,0);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-
-            editor.putBoolean("hasLoggedIn",true);
-            editor.commit();
-            startActivity(new Intent(Login.this,Home.class));
-            finish();
-
-            //nyoba keep login*/
+//           /* //nyoba keep login
+//            SharedPreferences sharedPreferences = getSharedPreferences(Login.PREFS_NAME,0);
+//            SharedPreferences.Editor editor = sharedPreferences.edit();
+//
+//            editor.putBoolean("hasLoggedIn",true);
+//            editor.commit();
+//            startActivity(new Intent(Login.this,Home.class));
+//            finish();
+//
+//            //nyoba keep login*/
             if(email.getText().length()>0&& password.getText().length()>0){
                 login(email.getText().toString(),password.getText().toString());
             }else{
                 Toast.makeText(getApplicationContext(), "isi dulu", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-    password.setOnTouchListener(new View.OnTouchListener() {
+//
+//
+  password.setOnTouchListener(new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             final int Right=2;
@@ -174,7 +175,7 @@ public class Login extends AppCompatActivity {
 //                    progressDialog.setTitle("Loading");
 //                    progressDialog.setMessage("silakan tunggu");
 //                    progressDialog.setCancelable(false);
-                    if(uid != null)
+                    if(users != null)
                     {
                         reload();
                     }
@@ -187,14 +188,14 @@ public class Login extends AppCompatActivity {
     }
 
     //asalnya
-    private  void reload(){
-
-        startActivity(new Intent(getApplicationContext(),Home.class));
-    }
+//    private  void reload(){
+//
+//        startActivity(new Intent(getApplicationContext(),Home.class));
+//    }
 
     //testing keep userlogin
-    /*private  void reload(){
+    private  void reload(){
         startActivity(new Intent(Login.this,Home.class));
         finish();
-    }*/
+    }
 }
