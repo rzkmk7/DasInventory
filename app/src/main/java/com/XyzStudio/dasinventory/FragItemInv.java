@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -50,7 +51,6 @@ public class FragItemInv extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState){
         final View view = inflater.inflate(R.layout.activity_frag_item_inv, container, false);
-
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
         TextView ed_namaBarang = view.findViewById(R.id.ed_namaBarang);
@@ -64,6 +64,7 @@ public class FragItemInv extends DialogFragment {
         ed_type.setText(this.type);
         ed_ket.setText(this.ket);
 
+
         /*inv = FirebaseAuth.getInstance().getCurrentUser();
         invRef = userDB.getInstance().getReference("Users");
         inv = users.getUid();*/
@@ -71,6 +72,7 @@ public class FragItemInv extends DialogFragment {
         ed_btn_invSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String namaBarang = ed_namaBarang.getText().toString();
                 String jmlStok = ed_jmlStok.getText().toString();
                 String ket = ed_ket.getText().toString();
@@ -90,6 +92,7 @@ public class FragItemInv extends DialogFragment {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();
+
                         }
                     }));
 
@@ -104,7 +107,7 @@ public class FragItemInv extends DialogFragment {
     }
 
     private void input(EditText txt, String s){
-        txt.setError(s+"tidak boleh kosong");
+        txt.setError(s +""+"tidak boleh kosong");
         txt.requestFocus();
     }
 }

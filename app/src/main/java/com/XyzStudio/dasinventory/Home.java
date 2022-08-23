@@ -37,6 +37,7 @@ public class Home extends AppCompatActivity {
     public DatabaseReference usersRef;
     public FirebaseDatabase userDB;
     private FirebaseUser users;
+    public FirebaseUser logout;
 
 //    private static int SPLASH_TIME_OUT=3000;
 
@@ -75,6 +76,7 @@ public class Home extends AppCompatActivity {
         btn_logout = findViewById(R.id.btn_logout);
 
         users = FirebaseAuth.getInstance().getCurrentUser();
+        /*logout = FirebaseAuth.getInstance().signOut();*/
         usersRef = userDB.getInstance().getReference("Users");
         /*Login login = new Login("s")*/
       uid = users.getUid();
@@ -105,11 +107,12 @@ public class Home extends AppCompatActivity {
         });
         btn_logout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Log.d("logout","work");
-                /*if(uid != null)
+               /* if(uid != null)
                 {
-                    *//*String restUid = null;
-                    uid = restUid;*//*
+                    logout();
+                    String restUid = null;
+                    uid = restUid;
+                    Log.d("logout",uid);
                 }*/
                 startActivity(new Intent(Home.this,Login.class));
             }

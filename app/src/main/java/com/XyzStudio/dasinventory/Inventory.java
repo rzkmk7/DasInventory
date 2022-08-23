@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 
@@ -26,6 +27,8 @@ import java.util.ArrayList;
 public class Inventory extends AppCompatActivity {
 
     FloatingActionButton fab_add_inventory;
+    ImageButton invHome;
+    ImageButton delAllInv;
 
     ListView listView;
     AdapterInventory adapter;
@@ -45,6 +48,8 @@ public class Inventory extends AppCompatActivity {
 
         context = this;
         fab_add_inventory = findViewById(R.id.fab_add_inventory);
+        invHome = findViewById(R.id.invHome);
+        delAllInv =  findViewById(R.id.delAllInv);
 
         adapter = new AdapterInventory(this, inventoryArrayList, new AdapterInventory.OnClickListener(){
             @Override
@@ -65,6 +70,18 @@ public class Inventory extends AppCompatActivity {
                 /* startActivity(new Intent(Inventory.this,FormInventory.class));*/
                 FormInventory formInventory = new FormInventory();
                 formInventory.show(getSupportFragmentManager(), "activity_form_inventory");
+            }
+        });
+        invHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Inventory.this,Home.class));
+            }
+        });
+        delAllInv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ref.removeValue();
             }
         });
         getData();

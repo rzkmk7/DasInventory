@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,17 +37,17 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
         TextView tv_type = view.findViewById(R.id.tv_type);
         TextView tv_jmlStok = view.findViewById(R.id.tv_jmlStok);
 
-        Button ed_frag_item = view.findViewById(R.id.test123);
+        ImageButton ed_inv = view.findViewById(R.id.ed_inv);
 
-        ed_frag_item.setOnClickListener(new View.OnClickListener() {
+        ed_inv.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mListener.onClick(position);
             }
         });
 
-        tv_namaBarang.setText(arrayListInventory.get(position).getNamaBarang());
-        tv_type.setText(arrayListInventory.get(position).getType());
-        tv_jmlStok.setText(arrayListInventory.get(position).getJmlStok());
+        tv_namaBarang.setText("Nama : "+arrayListInventory.get(position).getNamaBarang());
+        tv_type.setText("Type :"+arrayListInventory.get(position).getType());
+        tv_jmlStok.setText("Stok :"+arrayListInventory.get(position).getJmlStok());
 
 
         return view;

@@ -73,10 +73,10 @@ public class Login extends AppCompatActivity {
 
         users = FirebaseAuth.getInstance().getCurrentUser();
         usersRef = userDB.getInstance().getReference("Users");
-       /* uid = users.getUid();*/
+        uid = users.getUid();
         /*User user = new User("","","");*/
 
-        if(users != null)
+        if(uid != null)
         {
             reload();
         }
@@ -89,6 +89,12 @@ public class Login extends AppCompatActivity {
         progressDialog.setCancelable(false);
 
         btnLogin.setOnClickListener(v -> {
+            /*if(uid != null)
+            {
+                String restUid = null;
+                uid = restUid;
+                Log.d("logout",uid);
+            }*/
            /* //nyoba keep login
             SharedPreferences sharedPreferences = getSharedPreferences(Login.PREFS_NAME,0);
             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -97,6 +103,7 @@ public class Login extends AppCompatActivity {
             editor.commit();
             startActivity(new Intent(Login.this,Home.class));
             finish();
+
             //nyoba keep login*/
             if(email.getText().length()>0&& password.getText().length()>0){
                 login(email.getText().toString(),password.getText().toString());
@@ -167,7 +174,10 @@ public class Login extends AppCompatActivity {
 //                    progressDialog.setTitle("Loading");
 //                    progressDialog.setMessage("silakan tunggu");
 //                    progressDialog.setCancelable(false);
-                    reload();
+                    if(uid != null)
+                    {
+                        reload();
+                    }
                    /* startActivity(new Intent(Login.this,Home.class));*/
                 }else{
                     Toast.makeText(getApplicationContext(), "gagal", Toast.LENGTH_SHORT).show();

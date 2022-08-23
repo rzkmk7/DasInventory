@@ -16,11 +16,11 @@ public class InventoryItem extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Button ed_frag_item;
+        ImageButton ed_inv;
 
-        ed_frag_item = findViewById(R.id.test123);
+        ed_inv = findViewById(R.id.ed_inv);
 
-        ed_frag_item.setOnClickListener(new View.OnClickListener() {
+        ed_inv.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Log.i("ttt","asdaasdasd");
                 /* startActivity(new Intent(Inventory.this,FormInventory.class));*/
