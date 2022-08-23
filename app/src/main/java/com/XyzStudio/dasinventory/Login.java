@@ -69,14 +69,14 @@ public class Login extends AppCompatActivity {
         email=findViewById(R.id.et_username);
         password=findViewById(R.id.et_password);
         btnLogin = findViewById(R.id.btn_login);
-        mAuth = FirebaseAuth.getInstance();
+          = FirebaseAuth.getInstance();
 
         users = FirebaseAuth.getInstance().getCurrentUser();
         usersRef = userDB.getInstance().getReference("Users");
-        uid = users.getUid();
+       /* uid = users.getUid();*/
         /*User user = new User("","","");*/
 
-        if(uid != null)
+        if(users != null)
         {
             reload();
         }
