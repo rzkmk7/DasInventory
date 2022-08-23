@@ -2,9 +2,11 @@ package com.XyzStudio.dasinventory;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -80,16 +82,34 @@ public class Inventory extends AppCompatActivity {
                 startActivity(new Intent(Inventory.this,Home.class));
             }
         });
-        delAllInv.setOnClickListener(new View.OnClickListener() {
+
+       delAllInv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ref.removeValue();
-                finish();
-                overridePendingTransition(1, 1);
-                startActivity(getIntent());
-                overridePendingTransition(1, 1);
+                Log.i("kliked","s");
+                AlertDialog.Builder builder = new AlertDialog.Builder(Inventory.this);
+                builder.setTitle("Do this action");
+                builder.setMessage("delete semua data?");
+                builder.setPositiveButton("YES", (dialog, which) -> {
+                    // Do do my action here
+                    ref.removeValue();
+                    finish();
+                    overridePendingTransition(1, 1);
+                    startActivity(getIntent());
+                    overridePendingTransition(1, 1);
+                });
+
+                builder.setNegativeButton("NO", (dialog, which) -> {
+                    // I do not need any action here you might
+                    dialog.dismiss();
+                });
+
+                AlertDialog alert = builder.create();
+                alert.show();
             }
         });
+
+
         refInv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
