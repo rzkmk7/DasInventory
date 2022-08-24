@@ -46,6 +46,9 @@ public class EditProfile extends AppCompatActivity {
     public FirebaseDatabase userDB;
     private FirebaseUser users;
 
+    FirebaseAuth fAuth;
+
+
 //    private Uri imageUri;
 //    private String myUri = "";
 //    private StorageTask uploadTask;

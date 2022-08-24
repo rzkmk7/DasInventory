@@ -123,13 +123,13 @@ public class Login extends AppCompatActivity {
                     int selection = password.getSelectionEnd();
                     if(passwordVisible){
                         //setdrawable wkwk
-                        password.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_visibility_off_24,0);
+                        password.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_lock,0,R.drawable.ic_baseline_visibility_off_24,0);
                         //for hide password
                         password.setTransformationMethod(PasswordTransformationMethod.getInstance());
                         passwordVisible=false;
                     }else{
                         //setdrawablewkwk
-                        password.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_visibility_24,0);
+                        password.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_lock,0,R.drawable.ic_baseline_visibility_24,0);
                         //for show password
                         password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                         passwordVisible=true;
