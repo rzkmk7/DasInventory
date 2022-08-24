@@ -1,5 +1,6 @@
 package com.XyzStudio.dasinventory;
 
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -14,8 +15,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +26,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.journeyapps.barcodescanner.ScanContract;
+import com.journeyapps.barcodescanner.ScanOptions;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -84,8 +92,12 @@ public class Inventory extends AppCompatActivity {
         fab_add_inventory.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 /* startActivity(new Intent(Inventory.this,FormInventory.class));*/
-                FormInventory formInventory = new FormInventory();
-                formInventory.show(getSupportFragmentManager(), "activity_form_inventory");
+//                FormInventory formInventory = new FormInventory();
+//                formInventory.show(getSupportFragmentManager(), "activity_form_inventory");
+
+
+                //Scan QR Code
+                scanCode();
             }
         });
         invHome.setOnClickListener(new View.OnClickListener() {
@@ -168,4 +180,52 @@ public class Inventory extends AppCompatActivity {
         });
     }
 
+    private void scanCode()
+    {
+        ScanOptions options = new ScanOptions();
+        options.setPrompt("Volume up to flash on");
+        options.setBeepEnabled(true);
+        options.setOrientationLocked(true);
+        options.setCaptureActivity(CaptureAct.class);
+        barLaucher.launch(options);
+    }
+
+    ActivityResultLauncher<ScanOptions> barLaucher = registerForActivityResult(new ScanContract(), result->
+    {
+        if(result.getContents() !=null)
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(Inventory.this);
+            builder.setTitle("Result");
+            try {
+                JSONObject obj = new JSONObject(result.getContents());
+
+                String namaBarang = obj.getString("namaBarang");
+                String jmlStok = obj.getString("jmlStok");
+                String ket = obj.getString("ket");
+                String type = obj.getString("type");
+
+                InventoryData data = new InventoryData(namaBarang, jmlStok, type, ket);
+
+                DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+                database.child("Inventory").push().setValue(data).addOnSuccessListener((new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(context, "Data Tersimpan", Toast.LENGTH_SHORT).show();
+                    }
+                }));
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+//            builder.setMessage(result.getContents());
+//            builder.setPositiveButton("OK", new DialogInterface.OnClickListener()
+//            {
+//                @Override
+//                public void onClick(DialogInterface dialogInterface, int i)
+//                {
+//                    dialogInterface.dismiss();
+//                }
+//            }).show();
+        }
+    });
 }
