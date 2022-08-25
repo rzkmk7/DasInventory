@@ -85,4 +85,21 @@
         android:id="@+id/fab_add_inventory"
 
         />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#0f3498"
+        android:src="@drawable/ic_edit"
+        app:backgroundTint="@null"
+        app:tint="@null"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="140dp"
+        android:layout_marginRight="20dp"
+        android:scaleType="center"
+        app:maxImageSize="38dp"
+        android:elevation="8dp"
+        android:id="@+id/fab_add_scan"
+
+        />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

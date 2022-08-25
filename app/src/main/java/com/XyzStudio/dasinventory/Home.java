@@ -96,10 +96,10 @@ public class Home extends AppCompatActivity {
                     String jabatan = userProfile.jabatan;
                     profileJabatan.setText(jabatan);
                 }
-                else {
-                    usersRef.child(uid).child("profile").child("nama").setValue("Profile Name");
-                    usersRef.child(uid).child("profile").child("jabatan").setValue("Jabatan");
-                }
+//                else {
+//                    usersRef.child(uid).child("profile").child("nama").setValue("Profile Name");
+//                    usersRef.child(uid).child("profile").child("jabatan").setValue("Jabatan");
+//                }
                 if (snapshot.hasChild("profilePic"))
                 {
                     String imageUri = snapshot.child("profilePic").getValue().toString();

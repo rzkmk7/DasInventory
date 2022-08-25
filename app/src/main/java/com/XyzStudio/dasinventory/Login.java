@@ -157,9 +157,23 @@ public class Login extends AppCompatActivity {
                     usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (!snapshot.hasChild(users.getUid()))
-                                usersRef.child(users.getUid()).child("profile").child("nama").setValue("UserName");
-                            usersRef.child(users.getUid()).child("profile").child("jabatan").setValue("jabatan");
+                         /*   if (!snapshot.hasChild(users.getUid())) {
+//                                usersRef.child(users.getUid()).child("profile").child("nama").setValue("UserName");
+//                            usersRef.child(users.getUid()).child("profile").child("jabatan").setValue("jabatan");
+
+                            }*/
+                          /*     if (snapshot.hasChild("Profile"){
+//                                usersRef.child(users.getUid()).child("profile").child("nama").setValue("UserName");
+//                            usersRef.child(users.getUid()).child("profile").child("jabatan").setValue("jabatan");
+
+                            }*/
+                            if( snapshot.hasChild("Profile")) {
+                                if ( snapshot.hasChild("nama") || snapshot.hasChild("jabatan")) {
+                                    usersRef.child(users.getUid()).child("profile").child("nama").setValue("UserName");
+                                    usersRef.child(users.getUid()).child("profile").child("jabatan").setValue("jabatan");
+                                } else {
+                                }
+                            }
 
 
                         }
