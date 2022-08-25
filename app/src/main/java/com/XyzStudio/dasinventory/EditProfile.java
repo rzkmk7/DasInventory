@@ -15,9 +15,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -51,6 +53,7 @@ public class EditProfile extends AppCompatActivity {
     private Button closeButton,saveButton;
     private TextView profileChangeBtn;
     private EditText edtNama;
+    private EditText edtJabatan;
 
     private String uid;
     public DatabaseReference databaseReference;
@@ -84,14 +87,14 @@ public class EditProfile extends AppCompatActivity {
         uid = users.getUid();
 
 
-        Log.d("lol","testttttttttttt");
+
 
         profileImageView = findViewById(R.id.profileIMG);
 
         closeButton = findViewById(R.id.btnCloseEditProfile);
         saveButton = findViewById(R.id.btnSaveEditProfile);
-
-
+        edtNama = findViewById(R.id.edtNama);
+        edtJabatan = findViewById(R.id.jabatan);
 
         profileChangeBtn = findViewById(R.id.btn_change_profile);
 
@@ -113,6 +116,7 @@ public class EditProfile extends AppCompatActivity {
                 final  EditText jabatan = (EditText) findViewById(R.id.jabatan);
                 databaseReference.child(uid).child("profile").child("nama").setValue(nama.getText().toString());
                 databaseReference.child(uid).child("profile").child("jabatan").setValue(jabatan.getText().toString());
+               // databaseReference.child(uid).child("profile").child("profilePic").setValue(imageUri.getLastPathSegment());
                 Toast.makeText(getApplicationContext(), "berhasil disimpan", Toast.LENGTH_SHORT).show();
 
                 //nyoba
@@ -128,9 +132,12 @@ public class EditProfile extends AppCompatActivity {
                 CropImage.activity().setAspectRatio(1,1).start(EditProfile.this);
             }
         });
-
-
-        //getUserinfo();
+        //bisa load image
+      //  Picasso.get().load("https://firebasestorage.googleapis.com/v0/b/dasinventory-12ce9.appspot.com/o/Image%2Fcropped6027412761156727767.jpg?alt=media&token=a6f960d0-62c5-473c-93dc-afd71697689ahttps://firebasestorage.googleapis.com/v0/b/dasinventory-12ce9.appspot.com/o/Image%2Fcropped6027412761156727767.jpg?alt=media&token=a6f960d0-62c5-473c-93dc-afd71697689a").into(profileImageView);
+      // String imageUri = "https://picsum.photos/id/237/200/300";
+      // Log.d("kontol",imageUri);
+        //Picasso.get().load(imageUri).into(profileImageView);
+        getUserinfo();
 
     }
 
@@ -140,7 +147,7 @@ public class EditProfile extends AppCompatActivity {
 //            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //             if (dataSnapshot.exists() && dataSnapshot.getChildrenCount()>0){
 //
-//                 if (dataSnapshot.hasChild("image")){
+//                 if (dataSnapshot.hasChild("profilePic")){
 //                     String image = dataSnapshot.child("image").getValue().toString();
 //                     Picasso.get().load(image).into(profileImageView);
 //                 }
@@ -153,9 +160,9 @@ public class EditProfile extends AppCompatActivity {
 //
 //            }
 //        });
-//
-//
-//    }
+
+
+  //  }
 
 //    private void uploadProfileImage() {
 //    }
@@ -179,33 +186,57 @@ public class EditProfile extends AppCompatActivity {
 //    }
 //
 //
-//    private void getUserinfo() {
-//        databaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0)
-//                {
+    private void getUserinfo() {
+        databaseReference.child(uid).child("profile").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                User userProfile = dataSnapshot.getValue(User.class);
+
 //                    String name = dataSnapshot.child("name").getValue().toString();
 //                    String  phone = dataSnapshot.child("phone").getValue().toString();
 //
-//                    edtName.setText(name);
-//                    edtPhone.setText(phone);
-//
-//                    if (dataSnapshot.hasChild("image"))
-//                    {
-//                        String image = dataSnapshot.child("image").getValue().toString();
-//                        Picasso.get().load(image).into(profileImageView);
-//                    }
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
-//    }
+//                    edtNama.setText(name);
+//                    edtJabatan.setText(phone);
+
+                //read image
+
+//               Picasso.get().load(imageUri).into(profileImageView);
+
+                //Glide.with(EditProfile.this).load(imageUri).into(profileImageView);
+
+                /*dataSnapshot.child(users+".jpg").getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        String imageUrl=task.getResult().toString();
+                        Picasso.get().load(imageUrl).into(profileImageView);
+                    }
+                });*/
+
+                if(userProfile != null){
+                    String nama = userProfile.nama;
+                    edtNama.setText(nama);
+                    String jabatan = userProfile.jabatan;
+                    edtJabatan.setText(jabatan);
+                    //String image = userProfile.profilePic.toString();
+                 //   Picasso.get().load("http://i.imgur.com/DvpvklR.png").into(profileImageView);
+                }
+
+                    if (dataSnapshot.hasChild("profilePic"))
+                    {
+                        String imageUri = dataSnapshot.child("profilePic").getValue().toString();
+                        Log.d("kontol",imageUri);
+                        Picasso.get().load(imageUri).into(profileImageView);
+                    }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
 //
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -229,51 +260,53 @@ public class EditProfile extends AppCompatActivity {
 ////
    private void uploadProfileImage() {
 //
-//        final ProgressDialog progressDialog = new ProgressDialog(this);
-//        progressDialog.setTitle("Set your profile");
-//        progressDialog.setMessage("Please wait, while we are setting your data ");
-//        progressDialog.show();
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Set your profile");
+        progressDialog.setMessage("Please wait, while we are setting your data ");
+        progressDialog.show();
 
         if (imageUri != null)
         {
           //  final StorageReference fileRef = storageProfilePicsRef.child(mAuth.getCurrentUser().getUid()+ ".jpg");
+           // databaseReference.child(uid).child("profile").child("profilePic").setValue(imageUri.getLastPathSegment());
          StorageReference storageProfilePicsRef = FirebaseStorage.getInstance().getReference().child("Image").child(imageUri.getLastPathSegment());
            // uploadTask = fileRef.putFile(imageUri);
             uploadTask = storageProfilePicsRef.putFile(imageUri);
 
 
-//            uploadTask.continueWithTask(new Continuation() {
-//                @Override
-//                public Object then(@NonNull Task task) throws Exception {
-//                    if (!task.isSuccessful())
-//                    {
-//                        throw task.getException();
-//                    }
-//                    return storageProfilePicsRef.getDownloadUrl();
-//                }
-//            }).  addOnCompleteListener(new OnCompleteListener<Uri>() {
-//                @Override
-//                public void onComplete(@NonNull Task<Uri> task) {
-//                    if (task.isSuccessful())
-//                    {
-//                        Uri downloadUrl =task.getResult();
-//                        myUri = downloadUrl.toString();
-//
+            uploadTask.continueWithTask(new Continuation() {
+                @Override
+                public Object then(@NonNull Task task) throws Exception {
+                    if (!task.isSuccessful())
+                    {
+                        throw task.getException();
+                    }
+                    return storageProfilePicsRef.getDownloadUrl();
+                }
+            }).  addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful())
+                    {
+                        Uri downloadUrl =task.getResult();
+                        myUri = downloadUrl.toString();
+
 //                        HashMap<String, Object> userMap = new HashMap<>();
 //                        userMap.put("image",myUri);
-//
-//                        dataRef.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
-//
-//                        progressDialog.dismiss();
-//
-//
-//                    }
-//
-//                }
-//            });
+
+                        databaseReference.child(uid).child("profile").child("profilePic").setValue(myUri);
+                       // dataRef.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
+
+                        progressDialog.dismiss();
+
+
+                    }
+
+                }
+            });
         }
         else {
-//            progressDialog.dismiss();
+            progressDialog.dismiss();
             Toast.makeText(this, "Data update", Toast.LENGTH_SHORT).show();
         }
 //

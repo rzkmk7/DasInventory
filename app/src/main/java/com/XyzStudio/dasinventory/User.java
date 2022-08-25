@@ -4,6 +4,7 @@ public class User {
 
     public String  nama;
     public String  jabatan;
+    //public String  profilePic;
 
 
 
@@ -13,10 +14,11 @@ public class User {
 
     }
 
-    public User(String nama, String jabatan ){
+    public User(String nama, String jabatan /*String  profilePic */){
 
         this.nama=nama;
         this.jabatan=jabatan;
+       // this.profilePic=profilePic;
 
     }
 
