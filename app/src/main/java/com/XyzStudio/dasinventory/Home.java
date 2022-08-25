@@ -21,6 +21,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Home extends AppCompatActivity {
 
@@ -31,7 +34,7 @@ public class Home extends AppCompatActivity {
     Button btn_laporan;
     Button btn_billing;
     ImageButton btn_logout;
-
+    private CircleImageView profilePicHome;
 
     private String uid;
     public DatabaseReference usersRef;
@@ -74,6 +77,7 @@ public class Home extends AppCompatActivity {
         btn_laporan = findViewById(R.id.btn_laporan);
         btn_billing = findViewById(R.id.btn_billing);
         btn_logout = findViewById(R.id.btn_logout);
+        profilePicHome = findViewById(R.id.profilePicHome);
 
         users = FirebaseAuth.getInstance().getCurrentUser();
         /*logout = FirebaseAuth.getInstance().signOut();*/
@@ -95,6 +99,12 @@ public class Home extends AppCompatActivity {
                 else {
                     usersRef.child(uid).child("profile").child("nama").setValue("Profile Name");
                     usersRef.child(uid).child("profile").child("jabatan").setValue("Jabatan");
+                }
+                if (snapshot.hasChild("profilePic"))
+                {
+                    String imageUri = snapshot.child("profilePic").getValue().toString();
+                    Log.d("kontol",imageUri);
+                    Picasso.get().load(imageUri).into(profilePicHome);
                 }
             }
 

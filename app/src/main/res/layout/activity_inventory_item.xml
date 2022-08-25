@@ -1,65 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="210dp"
     android:padding="5dp">
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:padding="5dp">
-        <TextView
-            android:id="@+id/tv_namaBarang"
+        android:layout_height="210dp"
+        app:cardBackgroundColor="#0378787E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Nama Barang"
-            android:gravity="center_vertical"
-            android:textSize="20sp"
-            android:layout_marginLeft="10dp"/>
-        <TextView
-            android:id="@+id/tv_jmlStok"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:text="Stok"
-            android:gravity="center_vertical"
-            android:textSize="20sp"
-            android:layout_margin="10dp"/>
-        <TextView
-            android:id="@+id/tv_type"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:text="Type"
-            android:gravity="center_vertical"
-            android:textSize="20sp"
-            android:layout_margin="10dp"/>
+            android:layout_height="match_parent"
+            android:padding="5dp">
 
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/ed_invDel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="8dp"
 
-    <ImageButton
-        android:contentDescription="edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:baselineAlignBottom="false"
-        android:minHeight="48dp"
-        android:src="@drawable/ic_edit"
-        android:layout_marginLeft="0dp"
-        android:id="@+id/ed_inv"
-        />
-    <ImageButton
-        android:contentDescription="aa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:baselineAlignBottom="false"
-        android:minHeight="48dp"
-        android:src="@drawable/ic_delete"
-        android:id="@+id/ed_invDel"
-        android:layout_marginLeft="0dp"
+                android:baselineAlignBottom="false"
+                android:contentDescription="aa"
+                android:minHeight="48dp"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-        />
-</LinearLayout>
+            <ImageButton
+                android:id="@+id/ed_inv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="8dp"
+                android:baselineAlignBottom="false"
+                android:contentDescription="edit"
+                android:minHeight="48dp"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ed_invDel" />
+
+            <ImageButton
+                android:id="@+id/btnMinus"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/button_selector"
+                android:baselineAlignBottom="false"
+                android:contentDescription="edit"
+                android:defaultFocusHighlightEnabled="true"
+                android:minHeight="48dp"
+                android:src="@drawable/ic_minus"
+                app:layout_constraintBottom_toTopOf="@+id/tv_type"
+                app:layout_constraintStart_toEndOf="@+id/tv_jmlStok"
+                app:layout_constraintTop_toBottomOf="@+id/tv_namaBarang" />
+
+            <ImageButton
+                android:id="@+id/btnPlus"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="6dp"
+
+                android:background="@drawable/button_selector"
+                android:baselineAlignBottom="false"
+                android:contentDescription="edit"
+                android:src="@drawable/ic_plus"
+                app:layout_constraintBottom_toTopOf="@+id/tv_type"
+                app:layout_constraintStart_toEndOf="@+id/editText"
+                app:layout_constraintTop_toBottomOf="@+id/tv_namaBarang"
+                app:layout_constraintVertical_bias="0.507" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="68dp"
+                android:text="save"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_type"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnPlus" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="6dp"
+                android:gravity="center"
+                app:layout_constraintBottom_toTopOf="@+id/tv_type"
+                app:layout_constraintStart_toEndOf="@+id/btnMinus"
+                app:layout_constraintTop_toBottomOf="@+id/tv_namaBarang" />
+
+            <TextView
+                android:id="@+id/tv_namaBarang"
+                android:layout_width="260dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:text="Nama Barang"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_jmlStok"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:gravity="center_vertical"
+                android:text="Stok"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_type"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_namaBarang" />
+
+            <TextView
+                android:id="@+id/tv_type"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical"
+                android:text="Type"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
