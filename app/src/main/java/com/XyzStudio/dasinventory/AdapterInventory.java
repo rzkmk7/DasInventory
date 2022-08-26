@@ -21,6 +21,7 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
     Context context;
     private OnClickListener mListener;
     private OnClickListenerDel mListenerDel;
+    private OnClickListenerDel mListenerHistory;
     public List<InventoryData> arrayListInventory;
 
 
@@ -31,21 +32,30 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
         this.arrayListInventory = arrayListInventory;
         this.mListener = mListener;
         this.mListenerDel = mListenerDel;
+        this.mListenerHistory = mListenerHistory;
     }
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_inventory_item, null, true);
-
+        Log.d("bbb","asdaasdasd");
         TextView tv_namaBarang = view.findViewById(R.id.tv_namaBarang);
         TextView tv_type = view.findViewById(R.id.tv_type);
         TextView tv_jmlStok = view.findViewById(R.id.tv_jmlStok);
 
         ImageButton ed_inv = view.findViewById(R.id.ed_inv);
         ImageButton ed_invDel = view.findViewById(R.id.ed_invDel);
+        ImageButton ed_invHistory = view.findViewById(R.id.btnHistory);
 
         ed_inv.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mListener.onClick(position);
+                Log.d("zzz","asdaasdasd");
+            }
+        });
+        ed_invHistory.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mListener.onClick(position);
+                Log.d("aaa","asdaasdasd");
             }
         });
         ed_invDel.setOnClickListener(new View.OnClickListener() {

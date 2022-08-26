@@ -16,17 +16,17 @@ public class InventoryItem extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ImageButton ed_inv;
-
-        ed_inv = findViewById(R.id.ed_inv);
-
-        ed_inv.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Log.i("ttt","asdaasdasd");
-                /* startActivity(new Intent(Inventory.this,FormInventory.class));*/
-                FragItemInv fragItemInv = new FragItemInv("","","","","");
-                fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
-            }
-    });
+//        ImageButton ed_inv;
+//
+//        ed_inv = findViewById(R.id.ed_inv);
+//
+//        ed_inv.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                Log.d("ttt","asdaasdasd");
+//                /* startActivity(new Intent(Inventory.this,FormInventory.class));*/
+//                FragItemInv fragItemInv = new FragItemInv("","","","","");
+//                fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
+//            }
+//    });
     }
 }

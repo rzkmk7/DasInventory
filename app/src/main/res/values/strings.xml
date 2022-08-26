@@ -12,4 +12,5 @@
     <string name="title_activity_billing_machine">BillingMachine</string>
     <string name="title_activity_form_billing">FormBilling</string>
     <string name="title_activity_billing_item">BillingItem</string>
+    <string name="title_activity_inv_history">InvHistory</string>
 </resources>
