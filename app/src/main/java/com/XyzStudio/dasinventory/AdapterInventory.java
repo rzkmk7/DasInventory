@@ -2,6 +2,8 @@ package com.XyzStudio.dasinventory;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,7 +81,8 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
         ed_invDel.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mListenerDel.onClick(position);
-//                ref.child(arrayListInventory.get(position).getKey()).removeValue();
+
+
             }
         });
 
@@ -99,6 +102,23 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
                     ambil -= 1;
                     et_ambil.setText(String.valueOf(ambil));
                 }
+            }
+        });
+        et_ambil.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                ambil = Integer.parseInt(charSequence.toString());
+                Log.d("testa", String.valueOf(ambil));
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
         btn_saveStokInv.setOnClickListener(new View.OnClickListener() {
