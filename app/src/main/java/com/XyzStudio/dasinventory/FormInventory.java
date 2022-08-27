@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -58,11 +60,26 @@ public class FormInventory extends DialogFragment {
                 }else if (TextUtils.isEmpty(type)){
                     input((EditText) et_type, "type" );
                 }else {
-                    database.child("Inventory").push().setValue(new InventoryData(namaBarang, jmlStok, type, ket,date,stokAkhir)).addOnSuccessListener((new OnSuccessListener<Void>() {
+                    database.child("Inventory").push().setValue(new InventoryData(namaBarang,
+                            jmlStok,
+                            type,
+                            ket,date
+                            ,stokAkhir)).addOnSuccessListener((new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();
                             dismiss();
+                            getActivity().recreate();
+//                            refreshActivity();
+
+                           /* Fragment currentFragment = getActivity().getFragmentManager().findFragmentById(R.id.action_Second2Fragment_to_First2Fragment);
+
+                            if (currentFragment instanceof "NAME OF YOUR FRAGMENT CLASS") {
+                                FragmentTransaction fragTransaction =   (getActivity()).getFragmentManager().beginTransaction();
+                                fragTransaction.detach(currentFragment);
+                                fragTransaction.attach(currentFragment);
+                                fragTransaction.commit();
+                            }*/
 
                         }
                     }));
@@ -79,4 +96,10 @@ public class FormInventory extends DialogFragment {
     txt.setError(s+"tidak boleh kosong");
     txt.requestFocus();
     }
+
+//    public void refreshActivity(){
+//        Inventory mDashboardActivity = new Inventory();
+//        mDashboardActivity.refreshMyData();
+//
+//    }
 }
