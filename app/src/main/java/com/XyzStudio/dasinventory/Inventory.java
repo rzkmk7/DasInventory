@@ -85,21 +85,14 @@ public class Inventory extends AppCompatActivity {
         }, new AdapterInventory.OnClickListenerDel(){
             @Override
             public void onClick(Integer msg){
-                // Get key
-//                Log.d("asd", inventoryArrayList.get(msg).getKey());
-                // Get namaBarang
-//                Log.d("asd", inventoryArrayList.get(msg).getJmlStok());
-                int jmlStok = Integer.parseInt(inventoryArrayList.get(msg).getJmlStok());
-                int total = jmlStok + 5;
-                Log.d("asd", String.valueOf(jmlStok));
-                Log.d("asd", String.valueOf(total));
+                ref.child(inventoryArrayList.get(msg).getKey()).removeValue();
+                finish();
             }
         }, new AdapterInventory.OnClickListenerHistory() {
             @Override
             public void onClick(Integer msg) {
                 startActivity(new Intent(Inventory.this,InvHistory.class));
                 Log.d("asd", "Kontol");
-
             }
         }
 

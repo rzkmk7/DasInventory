@@ -65,14 +65,14 @@
                 android:id="@+id/btnPlus"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:layout_marginStart="6dp"
 
                 android:background="@drawable/button_selector"
                 android:baselineAlignBottom="false"
                 android:contentDescription="edit"
                 android:src="@drawable/ic_plus"
                 app:layout_constraintBottom_toTopOf="@+id/tv_type"
-                app:layout_constraintStart_toEndOf="@+id/editText"
+                app:layout_constraintEnd_toStartOf="@+id/btn_saveStokInv"
+                app:layout_constraintStart_toEndOf="@+id/et_ambil"
                 app:layout_constraintTop_toBottomOf="@+id/tv_namaBarang"
                 app:layout_constraintVertical_bias="0.507" />
 
@@ -80,7 +80,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="16dp"
-                app:layout_constraintBottom_toTopOf="@+id/button4"
+                app:layout_constraintBottom_toTopOf="@+id/btn_saveStokInv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.804"
                 app:layout_constraintStart_toEndOf="@+id/tv_namaBarang"
@@ -90,17 +90,16 @@
                 android:src="@drawable/ic_history"/>
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/btn_saveStokInv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="68dp"
                 android:text="save"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_type"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btnPlus" />
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/et_ambil"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="6dp"
