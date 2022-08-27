@@ -79,7 +79,8 @@ public class Inventory extends AppCompatActivity {
                         inventoryArrayList.get(msg).getType(),
                         inventoryArrayList.get(msg).getKet(),
                         inventoryArrayList.get(msg).getDate(),
-                        inventoryArrayList.get(msg).getStokAkhir());
+                        inventoryArrayList.get(msg).getStokAkhir(),
+                        inventoryArrayList.get(msg).getKey()                        );
                 fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
             }
         }, new AdapterInventory.OnClickListenerDel(){
@@ -214,7 +215,8 @@ public class Inventory extends AppCompatActivity {
             try {
                 JSONObject obj = new JSONObject(result.getContents());
 //                Log.d("testa", obj.getString("id"));
-                ref.child(obj.getString("id")).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                String key = obj.getString("id");
+                ref.child(key).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DataSnapshot> task) {
                         if (!task.isSuccessful()) {
@@ -234,7 +236,8 @@ public class Inventory extends AppCompatActivity {
                                     type,
                                     ket,
                                     date,
-                                    stokAkhir);
+                                    stokAkhir,
+                                    key);
                             fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
 
 

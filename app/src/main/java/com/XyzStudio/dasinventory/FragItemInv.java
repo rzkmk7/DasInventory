@@ -27,12 +27,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class FragItemInv extends DialogFragment {
-    public FragItemInv(String namaBarang, String jmlStok, String type, String ket, String date, String stokAkhir) {
+    public FragItemInv(String namaBarang, String jmlStok, String type, String ket, String date, String stokAkhir, String key) {
         this.namaBarang = namaBarang;
         this.jmlStok = jmlStok;
         this.type = type;
         this.ket = ket;
-//        this.key = key;
+        this.key = key;
         this.date = date;
         this.stokAkhir = stokAkhir;
 
@@ -104,6 +104,8 @@ public class FragItemInv extends DialogFragment {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();
+                            dismiss();
+                            getActivity().recreate();
 
                         }
                     }));
