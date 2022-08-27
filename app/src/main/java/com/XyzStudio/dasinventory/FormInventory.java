@@ -38,6 +38,7 @@ public class FormInventory extends DialogFragment {
        TextView et_jmlStok = view.findViewById(R.id.et_jmlStok);
        TextView et_type = view.findViewById(R.id.et_type);
        TextView et_ket = view.findViewById(R.id.et_ket);
+        TextView dateInvForm = view.findViewById(R.id.invFormDate);
        Button btn_invSave = view.findViewById(R.id.btn_invSave);
 
         btn_invSave.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +48,8 @@ public class FormInventory extends DialogFragment {
                 String jmlStok = et_jmlStok.getText().toString();
                 String ket = et_ket.getText().toString();
                 String type = et_type.getText().toString();
+                String date = dateInvForm.getText().toString();
+                String stokAkhir = jmlStok;
 
                 if(TextUtils.isEmpty(namaBarang)){
                     input((EditText) et_namaBarang, "namaBarang" );
@@ -55,7 +58,7 @@ public class FormInventory extends DialogFragment {
                 }else if (TextUtils.isEmpty(type)){
                     input((EditText) et_type, "type" );
                 }else {
-                    database.child("Inventory").push().setValue(new InventoryData(namaBarang, jmlStok, type, ket)).addOnSuccessListener((new OnSuccessListener<Void>() {
+                    database.child("Inventory").push().setValue(new InventoryData(namaBarang, jmlStok, type, ket,date,stokAkhir)).addOnSuccessListener((new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();

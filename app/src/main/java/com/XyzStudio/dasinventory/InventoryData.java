@@ -5,17 +5,41 @@ public class InventoryData {
     public InventoryData(){
 
     }
-    public InventoryData(String namaBarang, String jmlStok, String type, String ket) {
+    public InventoryData(String namaBarang, String jmlStok, String type, String ket, String date, String stokAkhir) {
         this.namaBarang = namaBarang;
         this.jmlStok = jmlStok;
         this.type = type;
         this.ket = ket;
+        this.date = date;
+        this.stokAkhir = stokAkhir;
     }
+
 
     private String namaBarang;
     private String jmlStok;
     private String type;
     private String ket;
+    private String date;
+    private String stokAkhir;
+    private String Key;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getStokAkhir() {
+        return stokAkhir;
+    }
+
+    public void setStokAkhir(String stokAkhir) {
+        this.stokAkhir = stokAkhir;
+    }
+
+
 
     public String getKey() {
         return Key;
@@ -25,7 +49,7 @@ public class InventoryData {
         Key = key;
     }
 
-    private String Key;
+
 
     public String getNamaBarang() {
         return namaBarang;

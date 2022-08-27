@@ -21,11 +21,11 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
     Context context;
     private OnClickListener mListener;
     private OnClickListenerDel mListenerDel;
-    private OnClickListenerDel mListenerHistory;
+    private OnClickListenerHistory mListenerHistory;
     public List<InventoryData> arrayListInventory;
 
 
-    public AdapterInventory(@NonNull Context context, List<InventoryData> arrayListInventory, OnClickListener mListener, OnClickListenerDel mListenerDel) {
+    public AdapterInventory(@NonNull Context context, List<InventoryData> arrayListInventory, OnClickListener mListener, OnClickListenerDel mListenerDel, OnClickListenerHistory mListenerHistory) {
         super(context, R.layout.activity_inventory_item, arrayListInventory);
 
         this.context = context;
@@ -54,7 +54,7 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
         });
         ed_invHistory.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mListener.onClick(position);
+                mListenerHistory.onClick(position);
                 Log.d("aaa","asdaasdasd");
             }
         });
@@ -71,8 +71,11 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
 
         return view;
     }
-
+/// posisi interface click integer massage
     public interface OnClickListener {
+        public void onClick(Integer message);
+    }
+    public interface OnClickListenerHistory {
         public void onClick(Integer message);
     }
     public interface OnClickListenerDel {

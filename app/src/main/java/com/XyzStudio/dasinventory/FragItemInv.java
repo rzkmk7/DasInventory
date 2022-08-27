@@ -27,12 +27,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class FragItemInv extends DialogFragment {
-    public FragItemInv(String namaBarang, String jmlStok, String type, String ket, String key) {
+    public FragItemInv(String namaBarang, String jmlStok, String type, String ket, String key, String date, String stokAkhir) {
         this.namaBarang = namaBarang;
         this.jmlStok = jmlStok;
         this.type = type;
         this.ket = ket;
         this.key = key;
+        this.date = date;
+        this.stokAkhir = stokAkhir;
+
     }
 
     private String namaBarang;
@@ -40,6 +43,8 @@ public class FragItemInv extends DialogFragment {
     private String type;
     private String ket;
     private String key;
+    private String date;
+    private String stokAkhir;
 
     private String uidInv;
 
@@ -51,18 +56,23 @@ public class FragItemInv extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState){
         final View view = inflater.inflate(R.layout.activity_frag_item_inv, container, false);
+
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
         TextView ed_namaBarang = view.findViewById(R.id.ed_namaBarang);
         TextView ed_jmlStok = view.findViewById(R.id.ed_jmlStok);
         TextView ed_type = view.findViewById(R.id.ed_type);
         TextView ed_ket = view.findViewById(R.id.ed_ket);
+        TextView dateEdInv = view.findViewById(R.id.invDate);
+        TextView stokEdAkhir = view.findViewById(R.id.invStokAkhir);
         Button ed_btn_invSave = view.findViewById(R.id.ed_btn_invSave);
 
         ed_namaBarang.setText(this.namaBarang);
         ed_jmlStok.setText(this.jmlStok);
         ed_type.setText(this.type);
         ed_ket.setText(this.ket);
+        dateEdInv.setText(this.date);
+        stokEdAkhir.setText(this.stokAkhir);
 
 
         /*inv = FirebaseAuth.getInstance().getCurrentUser();
@@ -77,6 +87,8 @@ public class FragItemInv extends DialogFragment {
                 String jmlStok = ed_jmlStok.getText().toString();
                 String ket = ed_ket.getText().toString();
                 String type = ed_type.getText().toString();
+                String date = dateEdInv.getText().toString();
+                String stokAkhir = stokEdAkhir.getText().toString();
 
                 if(TextUtils.isEmpty(namaBarang)){
                     input((EditText) ed_namaBarang, "namaBarang" );
@@ -88,7 +100,7 @@ public class FragItemInv extends DialogFragment {
 //
 
 
-                    database.child("Inventory").child(key).setValue(new InventoryData(namaBarang, jmlStok, type, ket)).addOnSuccessListener((new OnSuccessListener<Void>() {
+                    database.child("Inventory").child(key).setValue(new InventoryData(namaBarang, jmlStok, type, ket,date,stokAkhir)).addOnSuccessListener((new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();

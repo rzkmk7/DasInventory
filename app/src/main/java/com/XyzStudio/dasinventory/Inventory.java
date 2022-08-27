@@ -66,10 +66,12 @@ public class Inventory extends AppCompatActivity {
         fab_add_scan = findViewById(R.id.fab_add_scan);
 
         adapter = new AdapterInventory(this, inventoryArrayList, new AdapterInventory.OnClickListener() {
+
+            /// button click untuk item list konsepnya adapter ngasih tau tap location dengan mListener ke dalam posisi click >lalu diterima oleh inventory dengan posisi integer msg
             @Override
             public void onClick(Integer msg) {
                 Log.d("asd", inventoryArrayList.get(msg).getNamaBarang());
-                FragItemInv fragItemInv = new FragItemInv(inventoryArrayList.get(msg).getNamaBarang(),inventoryArrayList.get(msg).getJmlStok(),inventoryArrayList.get(msg).getType(),inventoryArrayList.get(msg).getKet(),inventoryArrayList.get(msg).getKey());
+                FragItemInv fragItemInv = new FragItemInv(inventoryArrayList.get(msg).getNamaBarang(),inventoryArrayList.get(msg).getJmlStok(),inventoryArrayList.get(msg).getType(),inventoryArrayList.get(msg).getKet(),inventoryArrayList.get(msg).getDate(),inventoryArrayList.get(msg).getStokAkhir(),inventoryArrayList.get(msg).getKey());
                 fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
             }
         }, new AdapterInventory.OnClickListenerDel(){
@@ -84,7 +86,16 @@ public class Inventory extends AppCompatActivity {
                 Log.d("asd", String.valueOf(jmlStok));
                 Log.d("asd", String.valueOf(total));
             }
-        });
+        }, new AdapterInventory.OnClickListenerHistory() {
+            @Override
+            public void onClick(Integer msg) {
+                startActivity(new Intent(Inventory.this,InvHistory.class));
+                Log.d("asd", "Kontol");
+
+            }
+        }
+
+        );
         adapter.arrayListInventory.clear();
 
         listView = findViewById(R.id.ListInventory);
@@ -206,8 +217,10 @@ public class Inventory extends AppCompatActivity {
                 String jmlStok = obj.getString("jmlStok");
                 String ket = obj.getString("ket");
                 String type = obj.getString("type");
+                String date = obj.getString("date");
+                String stokAkhir = obj.getString("stokAkhir");
 
-                InventoryData data = new InventoryData(namaBarang, jmlStok, type, ket);
+                InventoryData data = new InventoryData(namaBarang, jmlStok, type, ket, date, stokAkhir);
 
                 DatabaseReference database = FirebaseDatabase.getInstance().getReference();
                 database.child("Inventory").push().setValue(data).addOnSuccessListener((new OnSuccessListener<Void>() {
