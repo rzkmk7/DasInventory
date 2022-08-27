@@ -113,6 +113,7 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 ambil = Integer.parseInt(charSequence.toString());
+//                searchByName(charSequence.toString());
                 Log.d("testa", String.valueOf(ambil));
             }
 

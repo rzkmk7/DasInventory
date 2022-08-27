@@ -153,10 +153,11 @@ public class Inventory extends AppCompatActivity {
         refInv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-                overridePendingTransition(1, 1);
-                startActivity(getIntent());
-                overridePendingTransition(1, 1);
+                searchByName("Jaa");
+//                finish();
+//                overridePendingTransition(1, 1);
+//                startActivity(getIntent());
+//                overridePendingTransition(1, 1);
             }
         });
         getData();
@@ -277,5 +278,39 @@ public class Inventory extends AppCompatActivity {
 //            }).show();
         }
     });
+
+    private void searchByName(String name) {
+        // adding a value listener to database reference to perform search
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists())
+                {
+                    inventoryArrayList.clear();
+
+                    for(DataSnapshot e : snapshot.getChildren())
+                    {
+                        InventoryData inventory = e.getValue(InventoryData.class);
+                        if(inventory != null)
+                        {
+//                            Log.d("testa", inventory.getNamaBarang());
+//                            Log.d("testa", name);
+//                            Log.d("testa", String.valueOf(inventory.getNamaBarang().equals(name)));
+                            if(inventory.getNamaBarang().equals(name))
+                            {
+                                inventory.setKey(snapshot.getKey());
+                                inventoryArrayList.add(inventory);
+                            }
+                        }
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
 
 }
