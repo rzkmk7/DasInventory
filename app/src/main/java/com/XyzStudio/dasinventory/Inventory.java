@@ -18,7 +18,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -71,7 +73,13 @@ public class Inventory extends AppCompatActivity {
             @Override
             public void onClick(Integer msg) {
                 Log.d("asd", inventoryArrayList.get(msg).getNamaBarang());
-                FragItemInv fragItemInv = new FragItemInv(inventoryArrayList.get(msg).getNamaBarang(),inventoryArrayList.get(msg).getJmlStok(),inventoryArrayList.get(msg).getType(),inventoryArrayList.get(msg).getKet(),inventoryArrayList.get(msg).getDate(),inventoryArrayList.get(msg).getStokAkhir(),inventoryArrayList.get(msg).getKey());
+                FragItemInv fragItemInv = new FragItemInv(
+                        inventoryArrayList.get(msg).getNamaBarang(),
+                        inventoryArrayList.get(msg).getJmlStok(),
+                        inventoryArrayList.get(msg).getType(),
+                        inventoryArrayList.get(msg).getKet(),
+                        inventoryArrayList.get(msg).getDate(),
+                        inventoryArrayList.get(msg).getStokAkhir());
                 fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
             }
         }, new AdapterInventory.OnClickListenerDel(){
@@ -212,23 +220,52 @@ public class Inventory extends AppCompatActivity {
             builder.setTitle("Result");
             try {
                 JSONObject obj = new JSONObject(result.getContents());
-
-                String namaBarang = obj.getString("namaBarang");
-                String jmlStok = obj.getString("jmlStok");
-                String ket = obj.getString("ket");
-                String type = obj.getString("type");
-                String date = obj.getString("date");
-                String stokAkhir = obj.getString("stokAkhir");
-
-                InventoryData data = new InventoryData(namaBarang, jmlStok, type, ket, date, stokAkhir);
-
-                DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-                database.child("Inventory").push().setValue(data).addOnSuccessListener((new OnSuccessListener<Void>() {
+//                Log.d("testa", obj.getString("id"));
+                ref.child(obj.getString("id")).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(context, "Data Tersimpan", Toast.LENGTH_SHORT).show();
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if (!task.isSuccessful()) {
+                            Log.e("testa", "Error getting data", task.getException());
+                        }
+                        else {
+                            String namaBarang = task.getResult().child("namaBarang").getValue().toString();
+                            String jmlStok = task.getResult().child("namaBarang").getValue().toString();
+                            String ket = task.getResult().child("ket").getValue().toString();
+                            String type = task.getResult().child("type").getValue().toString();
+                            String date = task.getResult().child("date").getValue().toString();
+                            String stokAkhir = task.getResult().child("stokAkhir").getValue().toString();
+
+                            FragItemInv fragItemInv = new FragItemInv(
+                                    namaBarang,
+                                    jmlStok,
+                                    type,
+                                    ket,
+                                    date,
+                                    stokAkhir);
+                            fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
+
+
+//                            Log.d("testa", String.valueOf(task.getResult().child("namaBarang").getValue()));
+                        }
                     }
-                }));
+                });
+
+//                String namaBarang = obj.getString("namaBarang");
+//                String jmlStok = obj.getString("jmlStok");
+//                String ket = obj.getString("ket");
+//                String type = obj.getString("type");
+//                String date = obj.getString("date");
+//                String stokAkhir = obj.getString("stokAkhir");
+
+//                InventoryData data = new InventoryData(namaBarang, jmlStok, type, ket, date, stokAkhir);
+//
+//                DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+//                database.child("Inventory").push().setValue(data).addOnSuccessListener((new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void aVoid) {
+//                        Toast.makeText(context, "Data Tersimpan", Toast.LENGTH_SHORT).show();
+//                    }
+//                }));
 
             } catch (JSONException e) {
                 e.printStackTrace();
