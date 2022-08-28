@@ -15,36 +15,38 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DasInventory">
         <activity
+            android:name=".History"
+            android:exported="false"
+            android:label="@string/title_activity_history"
+            android:theme="@style/Theme.DasInventory.NoActionBar" />
+        <activity
             android:name=".InvHistory"
             android:exported="false"
             android:label="@string/title_activity_inv_history"
-            android:theme="@style/Theme.DasInventory.NoActionBar" />
-<!--        <activity-->
-<!--            android:name=".HitungBilling"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".FragBilling"-->
-<!--            android:exported="false" />-->
+            android:theme="@style/Theme.DasInventory.NoActionBar" /> <!-- <activity -->
+        <!-- android:name=".HitungBilling" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".FragBilling" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".BillingItem"
             android:exported="false"
             android:label="@string/title_activity_billing_item"
-            android:theme="@style/Theme.DasInventory.NoActionBar" />
-<!--        <activity-->
-<!--            android:name=".FormBilling"-->
-<!--            android:exported="false"-->
-<!--            android:label="@string/title_activity_form_billing"-->
-<!--            android:theme="@style/Theme.DasInventory.NoActionBar" />-->
+            android:theme="@style/Theme.DasInventory.NoActionBar" /> <!-- <activity -->
+        <!-- android:name=".FormBilling" -->
+        <!-- android:exported="false" -->
+        <!-- android:label="@string/title_activity_form_billing" -->
+        <!-- android:theme="@style/Theme.DasInventory.NoActionBar" /> -->
         <activity
             android:name=".BillingMachine"
             android:exported="false"
             android:label="@string/title_activity_billing_machine"
-            android:theme="@style/Theme.DasInventory.NoActionBar" />
-<!--        <activity-->
-<!--            android:name=".FragItemInv"-->
-<!--            android:exported="false"-->
-<!--            android:label="@string/title_activity_frag_item_inv"-->
-<!--            android:theme="@style/Theme.DasInventory.NoActionBar" />-->
+            android:theme="@style/Theme.DasInventory.NoActionBar" /> <!-- <activity -->
+        <!-- android:name=".FragItemInv" -->
+        <!-- android:exported="false" -->
+        <!-- android:label="@string/title_activity_frag_item_inv" -->
+        <!-- android:theme="@style/Theme.DasInventory.NoActionBar" /> -->
         <activity
             android:name=".InventoryItem"
             android:exported="false" />
@@ -62,10 +64,9 @@
             android:exported="false" />
         <activity
             android:name=".TeknisiActivity"
-            android:exported="true" />
-<!--        <activity-->
-<!--            android:name=".FormInventory"-->
-<!--            android:exported="true" />-->
+            android:exported="true" /> <!-- <activity -->
+        <!-- android:name=".FormInventory" -->
+        <!-- android:exported="true" /> -->
         <activity
             android:name=".Inventory"
             android:exported="true" />
