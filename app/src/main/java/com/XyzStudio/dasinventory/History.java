@@ -53,26 +53,24 @@ public class History extends AppCompatActivity {
         ref = database.getReference("Inventory");
 
 
-
-
-        adapter = new invAdapterHistory(this, historyDataArrayList, new invAdapterHistory.OnClickListener() {
-
-            /// button click untuk item list konsepnya adapter ngasih tau tap location dengan mListener ke dalam posisi click >lalu diterima oleh inventory dengan posisi integer msg
-         /*   @Override
-            public void onClick(Integer msg) {
-//                Log.d("asd", inventoryArrayList.get(msg).getNamaBarang());
-//                FragItemInv fragItemInv = new FragItemInv(
-//                        inventoryArrayList.get(msg).getNamaBarang(),
-//                        inventoryArrayList.get(msg).getJmlStok(),
-//                        inventoryArrayList.get(msg).getType(),
-//                        inventoryArrayList.get(msg).getKet(),
-//                        inventoryArrayList.get(msg).getDate(),
-//                        inventoryArrayList.get(msg).getStokAkhir(),
-//                        inventoryArrayList.get(msg).getKey()                        );
-//                fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
-            }*/
-        });
-        adapter.arrayListHistory.clear();
+//        adapter = new invAdapterHistory(this, historyDataArrayList, new invAdapterHistory.OnClickListener() {
+//
+//            /// button click untuk item list konsepnya adapter ngasih tau tap location dengan mListener ke dalam posisi click >lalu diterima oleh inventory dengan posisi integer msg
+//            /*@Override
+//            public void onClick(Integer msg) {
+////                Log.d("asd", inventoryArrayList.get(msg).getNamaBarang());
+////                FragItemInv fragItemInv = new FragItemInv(
+////                        inventoryArrayList.get(msg).getNamaBarang(),
+////                        inventoryArrayList.get(msg).getJmlStok(),
+////                        inventoryArrayList.get(msg).getType(),
+////                        inventoryArrayList.get(msg).getKet(),
+////                        inventoryArrayList.get(msg).getDate(),
+////                        inventoryArrayList.get(msg).getStokAkhir(),
+////                        inventoryArrayList.get(msg).getKey()                        );
+////                fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
+//            }*/
+//        });
+//        adapter.arrayListHistory.clear();
 
         listView = findViewById(R.id.ListHistory);
         listView.setAdapter(adapter);
@@ -88,9 +86,9 @@ public class History extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 Log.d("tag",snapshot.getKey());
-                InventoryData inventory = snapshot.getValue(InventoryData.class);
-                inventory.setKey(snapshot.getKey());
-                historyDataArrayList.add(History);
+                HistoryData history = snapshot.getValue(HistoryData.class);
+                history.setKey(snapshot.getKey());
+                historyDataArrayList.add(history);
                 adapter.notifyDataSetChanged(); //teeuingggg
 
             }
