@@ -44,9 +44,9 @@ public class AdapterBilling<context> extends ArrayAdapter<BillingData> {
             }
         });
 
-        tv_tempatBil.setText(arrayListBilling.get(position).gette());
-        tv_typeBil.setText(arrayListBilling.get(position).tv_typeBil());
-        tv_snBil.setText(arrayListBilling.get(position).tv_snBil());
+//        tv_tempatBil.setText(arrayListBilling.get(position).gette());
+//        tv_typeBil.setText(arrayListBilling.get(position).tv_typeBil());
+//        tv_snBil.setText(arrayListBilling.get(position).tv_snBil());
 
 
         return view;
