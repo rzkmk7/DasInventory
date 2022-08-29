@@ -182,23 +182,29 @@ public class Inventory extends AppCompatActivity {
                 overridePendingTransition(1, 1);
             }
         });
-//        et_invSearch.addTextChangedListener(new TextWatcher() {
-//            String search = et_invSearch.getText().toString();
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//                searchByName(search);
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//
-//            }
-//        });
+        et_invSearch.addTextChangedListener(new TextWatcher() {
+            String search = et_invSearch.getText().toString();
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(charSequence.toString().equals(""))
+                {
+                    getData();
+                }
+                else {
+                    searchByName(charSequence.toString());
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
         getData();
     }
     public void getData(){
@@ -339,7 +345,7 @@ public class Inventory extends AppCompatActivity {
                             Log.d("kiw", String.valueOf(inventory.getNamaBarang().equals(name)));
                             if(inventory.getNamaBarang().equals(name) /*|| inventory.getDate().equals(name)*/)
                             {
-                                inventory.setKey(snapshot.getKey());
+                                inventory.setKey(e.getKey());
                                 inventoryArrayList.add(inventory);
                             }
                         }
