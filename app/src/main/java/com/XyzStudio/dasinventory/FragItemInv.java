@@ -66,7 +66,9 @@ public class FragItemInv extends DialogFragment {
         TextView dateEdInv = view.findViewById(R.id.invDate);
         TextView stokEdAkhir = view.findViewById(R.id.invStokAkhir);
         Button ed_btn_invSave = view.findViewById(R.id.ed_btn_invSave);
+        TextView namaBarangHeader = view.findViewById(R.id.namaBarangHeader);
 
+        namaBarangHeader.setText(this.namaBarang);
         ed_namaBarang.setText(this.namaBarang);
         ed_jmlStok.setText(this.jmlStok);
         ed_type.setText(this.type);

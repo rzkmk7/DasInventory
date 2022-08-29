@@ -176,23 +176,23 @@ public class Inventory extends AppCompatActivity {
                 exportDataIntoWorkbook(context, "kiwa.xlsx", inventoryArrayList);
             }
         });
-        et_invSearch.addTextChangedListener(new TextWatcher() {
-            String search = et_invSearch.getText().toString();
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                searchByName(search);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
+//        et_invSearch.addTextChangedListener(new TextWatcher() {
+//            String search = et_invSearch.getText().toString();
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//                searchByName(search);
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//
+//            }
+//        });
         getData();
     }
     public void getData(){
