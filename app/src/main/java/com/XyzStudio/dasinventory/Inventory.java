@@ -59,12 +59,6 @@ public class Inventory extends AppCompatActivity {
 
     ListView listView;
     AdapterInventory adapter;
-    public static ArrayList<InventoryData> inventoryArrayList = new ArrayList<>();
-    Context context;
-
-    public FirebaseDatabase database;
-    public DatabaseReference ref;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,7 +102,7 @@ public class Inventory extends AppCompatActivity {
         }, new AdapterInventory.OnClickListenerHistory() {
             @Override
             public void onClick(Integer msg) {
-                startActivity(new Intent(Inventory.this,InvHistory.class));
+                startActivity(new Intent(Inventory.this,History.class));
                 Log.d("asd", "Kontol");
             }
         }
@@ -139,7 +133,7 @@ public class Inventory extends AppCompatActivity {
             }
         });
 
-       delAllInv.setOnClickListener(new View.OnClickListener() {
+        delAllInv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i("kliked","s");
@@ -207,6 +201,12 @@ public class Inventory extends AppCompatActivity {
         });
         getData();
     }
+    public static ArrayList<InventoryData> inventoryArrayList = new ArrayList<>();
+
+    Context context;
+    public FirebaseDatabase database;
+
+    public DatabaseReference ref;
     public void getData(){
         inventoryArrayList.clear();
         ref.addChildEventListener(new ChildEventListener(){

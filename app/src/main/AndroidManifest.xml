@@ -24,11 +24,7 @@
             android:exported="false"
             android:label="@string/title_activity_history"
             android:theme="@style/Theme.DasInventory.NoActionBar" />
-        <activity
-            android:name=".InvHistory"
-            android:exported="false"
-            android:label="@string/title_activity_inv_history"
-            android:theme="@style/Theme.DasInventory.NoActionBar" /> <!-- <activity -->
+        <!-- <activity -->
         <!-- android:name=".HitungBilling" -->
         <!-- android:exported="false" /> -->
         <!-- <activity -->

@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="170dp"
+    android:layout_height="130dp"
     android:padding="5dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="130dp"
         app:cardBackgroundColor="#0378787E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
                 android:id="@+id/tv_dateAmbil"
                 android:layout_width="260dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:gravity="center_vertical"
                 android:text="Tanggl Ambil Barang"
@@ -33,46 +33,30 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_stokAwalHistory"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="52dp"
-                android:gravity="center_vertical"
-                android:text="StokAwal"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/tv_sisaStok"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_dateAmbil"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
                 android:id="@+id/tv_ambilStok"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="52dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
                 android:gravity="center_vertical"
                 android:text="JML Ambil"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/tv_sisaStok"
-                app:layout_constraintStart_toEndOf="@+id/tv_stokAwalHistory"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_sisaStok"
                 app:layout_constraintTop_toBottomOf="@+id/tv_dateAmbil"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/tv_sisaStok"
-                android:layout_width="240dp"
+                android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 android:gravity="center_vertical"
                 android:text="sisaStok"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_dateAmbil" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
