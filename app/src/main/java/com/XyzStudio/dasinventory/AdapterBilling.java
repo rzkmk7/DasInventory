@@ -32,21 +32,21 @@ public class AdapterBilling<context> extends ArrayAdapter<BillingData> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_billing_item, null, true);
 
-        TextView tv_namaBarangBil = view.findViewById(R.id.tv_namaBarangBil);
+        TextView tv_tempatBil = view.findViewById(R.id.tv_tempatBil);
         TextView tv_typeBil = view.findViewById(R.id.tv_typeBil);
-        TextView tv_jmlStokBil = view.findViewById(R.id.tv_jmlStokBil);
+        TextView tv_snBil = view.findViewById(R.id.tv_snBil);
 
-        Button ed_frag_item = view.findViewById(R.id.rr);
+        Button ed_bil = view.findViewById(R.id.ed_bil);
 
-        ed_frag_item.setOnClickListener(new View.OnClickListener() {
+        ed_bil.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mListener.onClick(position);
             }
         });
 
-        tv_namaBarangBil.setText(arrayListBilling.get(position).getNamaBarangBil());
-        tv_typeBil.setText(arrayListBilling.get(position).getTypeBil());
-        tv_jmlStokBil.setText(arrayListBilling.get(position).getJmlStokBil());
+        tv_tempatBil.setText(arrayListBilling.get(position).gette());
+        tv_typeBil.setText(arrayListBilling.get(position).tv_typeBil());
+        tv_snBil.setText(arrayListBilling.get(position).tv_snBil());
 
 
         return view;

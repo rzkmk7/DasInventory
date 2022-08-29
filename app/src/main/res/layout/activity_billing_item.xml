@@ -1,57 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="180dp"
     android:padding="5dp">
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:padding="5dp">
-        <TextView
-            android:id="@+id/tv_namaBarangBil"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:text="Nama Barang"
-            android:gravity="center_vertical"
-            android:textSize="20sp"
-            android:layout_marginLeft="10dp"/>
-        <TextView
-            android:id="@+id/tv_jmlStokBil"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:text="Stok"
-            android:gravity="center_vertical"
-            android:textSize="20sp"
-            android:layout_margin="10dp"/>
-        <TextView
-            android:id="@+id/tv_typeBil"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:text="Type"
-            android:gravity="center_vertical"
-            android:textSize="20sp"
-            android:layout_margin="10dp"/>
 
-    </LinearLayout>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/rr"/>
+    <TextView
+        android:id="@+id/tv_tempatBil"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:text="Tempat"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_typeBil"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical"
+        android:text="Type"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tempatBil" />
+
+
+    <TextView
+        android:id="@+id/tv_snBil"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical"
+        android:text="SN"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_typeBil" />
+
     <ImageButton
-        android:contentDescription="aa"
+        android:id="@+id/ed_bil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="8dp"
         android:baselineAlignBottom="false"
+        android:contentDescription="edit"
         android:minHeight="48dp"
-        android:src="@drawable/ic_add"
-        android:layout_marginLeft="20dp"
-        android:id="@+id/hitungBil"
-        />
+        android:src="@drawable/ic_edit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_snBil" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

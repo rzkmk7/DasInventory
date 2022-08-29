@@ -46,15 +46,15 @@ public class BillingMachine extends AppCompatActivity {
         context = this;
         fab_add_billing = findViewById(R.id.fab_add_billing);
 
-        adapter = new AdapterBilling(this, billingArrayList, new AdapterBilling.OnClickListener(){
-            @Override
-            public void onClick(Integer msg){
-                Log.d("asd", billingArrayList.get(msg).getNamaBarangBil());
-                FragBilling fragBilling = new FragBilling(billingArrayList.get(msg).getNamaBarangBil(),billingArrayList.get(msg).getJmlStokBil(),billingArrayList.get(msg).getTypeBil(),billingArrayList.get(msg).getKetBil(),billingArrayList.get(msg).getKey());
-                fragBilling.show(getSupportFragmentManager(), "activity_frag_bil");
-            }
-        });
-        adapter.arrayListBilling.clear();
+//        adapter = new AdapterBilling(this, billingArrayList, new AdapterBilling.OnClickListener(){
+//            @Override
+//            public void onClick(Integer msg){
+//                Log.d("asd", billingArrayList.get(msg).getTempatBil());
+//                FragBilling fragBilling = new FragBilling(billingArrayList.get(msg).getTempatBil(),billingArrayList.get(msg).getTypeBil(),billingArrayList.get(msg).getCounterAwalBil(),billingArrayList.get(msg).getCounterAkhirBil(),billingArrayList.get(msg).getTotalBiayaBil());
+//                fragBilling.show(getSupportFragmentManager(), "activity_frag_bil");
+//            }
+//        });
+//        adapter.arrayListBilling.clear();
 
         listView = findViewById(R.id.ListBilling);
         listView.setAdapter(adapter);

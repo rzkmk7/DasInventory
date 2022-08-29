@@ -28,35 +28,59 @@
         android:orientation="vertical"
         android:padding="20dp">
         <EditText
-            android:id="@+id/et_namaBarangBil"
+            android:id="@+id/et_tempatBil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nama BarangBil"
+            android:hint="Tempat "
             android:inputType="textCapSentences"/>
-        <EditText
-            android:id="@+id/et_jmlStokBil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Jumlah Barang"
-            android:inputType="number"/>
         <EditText
             android:id="@+id/et_typeBil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Type"
-            android:inputType="textCapSentences"/>
+            android:hint="Type "
+            android:inputType="number"/>
         <EditText
-            android:id="@+id/et_ketBil"
+            android:id="@+id/et_snBil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Keterangan"
-            android:inputType="textCapSentences"/>
+            android:hint="SN"
+            android:inputType="number"/>
+        <EditText
+            android:id="@+id/et_counterAwalBil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Counter Awal"
+            android:inputType="number"/>
+        <EditText
+            android:id="@+id/et_biayaBil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Biaya Per-copy"
+            android:inputType="number"/>
         <Button
-            android:id="@+id/btn_bilSave"
+            android:id="@+id/btn_saveBil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Save"/>
+        <EditText
+            android:id="@+id/et_counterAkhirBil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Counter Akhir"
+            android:inputType="number"/>
+        <EditText
+            android:id="@+id/et_totalBiayaBil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Total Biaya"
+            android:inputType="number"/>
+        <Button
+            android:id="@+id/btn_hitungBil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Hitung"/>
 
 
 
