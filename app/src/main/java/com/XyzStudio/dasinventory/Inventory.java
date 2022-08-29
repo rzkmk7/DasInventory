@@ -4,8 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -51,6 +54,7 @@ public class Inventory extends AppCompatActivity {
     ImageButton invHome;
     ImageButton delAllInv;
     ImageButton refInv;
+    EditText et_invSearch;
 
     ListView listView;
     AdapterInventory adapter;
@@ -74,6 +78,8 @@ public class Inventory extends AppCompatActivity {
         delAllInv =  findViewById(R.id.delAllInv);
         refInv =  findViewById(R.id.refInv);
         fab_add_scan = findViewById(R.id.fab_add_scan);
+        et_invSearch = findViewById(R.id.invSearch);
+
 
         adapter = new AdapterInventory(this, inventoryArrayList, new AdapterInventory.OnClickListener() {
 
@@ -167,7 +173,24 @@ public class Inventory extends AppCompatActivity {
 //                startActivity(getIntent());
 //                overridePendingTransition(1, 1);
 
-                exportDataIntoWorkbook(context, "test.xlsx", inventoryArrayList);
+                exportDataIntoWorkbook(context, "kiwa.xlsx", inventoryArrayList);
+            }
+        });
+        et_invSearch.addTextChangedListener(new TextWatcher() {
+            String search = et_invSearch.getText().toString();
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                searchByName(search);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
         getData();
@@ -289,6 +312,8 @@ public class Inventory extends AppCompatActivity {
         }
     });
 
+
+
     private void searchByName(String name) {
         // adding a value listener to database reference to perform search
         ref.addValueEventListener(new ValueEventListener() {
@@ -305,8 +330,8 @@ public class Inventory extends AppCompatActivity {
                         {
 //                            Log.d("testa", inventory.getNamaBarang());
 //                            Log.d("testa", name);
-//                            Log.d("testa", String.valueOf(inventory.getNamaBarang().equals(name)));
-                            if(inventory.getNamaBarang().equals(name) || inventory.getDate().equals(name))
+                            Log.d("kiw", String.valueOf(inventory.getNamaBarang().equals(name)));
+                            if(inventory.getNamaBarang().equals(name) /*|| inventory.getDate().equals(name)*/)
                             {
                                 inventory.setKey(snapshot.getKey());
                                 inventoryArrayList.add(inventory);
@@ -465,7 +490,7 @@ public class Inventory extends AppCompatActivity {
     private static boolean storeExcelInStorage(Context context, String fileName) {
         boolean isSuccess;
         Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-        File file = new File(Environment.getDataDirectory()/*(Environment.DIRECTORY_DOCUMENTS), fileName*/+fileName);
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)+"/"+fileName);
         FileOutputStream fileOutputStream = null;
 
         try {

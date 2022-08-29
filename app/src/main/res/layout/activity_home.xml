@@ -215,7 +215,7 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/ic_edit_profile" />
+                                android:src="@drawable/ic_counter" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -255,7 +255,7 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/ic_edit_profile" />
+                                android:src="@drawable/ic_tools" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -303,7 +303,7 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/ic_edit_profile" />
+                                android:src="@drawable/ic_next_update" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -312,7 +312,7 @@
                                 android:layout_centerInParent="true"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="10dp"
-                                android:text="Edit Porfile"
+                                android:text="Next Update"
                                 android:textSize="18dp" />
 
                             <Button
@@ -344,7 +344,7 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/ic_edit_profile" />
+                                android:src="@drawable/ic_next_update" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -353,7 +353,7 @@
                                 android:layout_centerInParent="true"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="10dp"
-                                android:text="Edit Porfile"
+                                android:text="Next Update"
                                 android:textSize="18dp" />
 
                             <Button
@@ -392,7 +392,7 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/ic_edit_profile" />
+                                android:src="@drawable/ic_next_update" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -401,7 +401,7 @@
                                 android:layout_centerInParent="true"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="10dp"
-                                android:text="Edit Porfile"
+                                android:text="Next Update"
                                 android:textSize="18dp" />
 
                             <Button
@@ -432,7 +432,7 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/ic_edit_profile" />
+                                android:src="@drawable/ic_next_update" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -441,7 +441,7 @@
                                 android:layout_centerInParent="true"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="10dp"
-                                android:text="Edit Porfile"
+                                android:text="Next Update"
                                 android:textSize="18dp" />
 
                             <Button

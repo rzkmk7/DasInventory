@@ -16,8 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -125,9 +128,15 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
         btn_saveStokInv.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Integer stokAkhir = Integer.parseInt(arrayListInventory.get(position).getJmlStok()) - ambil;
+                String stokAkhirItem = String.valueOf(stokAkhir);
+                //getcurrentDate
                 SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
                 Date c = Calendar.getInstance().getTime();
                 String formattedDate = df.format(c);
+                notifyDataSetChanged();
+                //test set value
+                ref.child(arrayListInventory.get(position).getKey()).child("stokAkhir").setValue(stokAkhirItem);
+        //        adapter.notifyDataSetChanged();
 
                 ref.child(arrayListInventory.get(position)
                         .getKey())
@@ -149,8 +158,48 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
         });
 
         tv_namaBarang.setText("Nama : "+arrayListInventory.get(position).getNamaBarang());
-        tv_type.setText("Type :"+arrayListInventory.get(position).getType());
-        tv_jmlStok.setText("Stok :"+arrayListInventory.get(position).getJmlStok());
+        tv_type.setText("Type : "+arrayListInventory.get(position).getType());
+
+        //stok akhir view item blm nge reference ke last history database
+       ref.child(arrayListInventory.get(position).getKey()).addValueEventListener(new ValueEventListener() {
+                     @Override
+                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                         String stokAkhir = snapshot.child("stokAkhir").getValue().toString();
+                         Log.d("kiwo", stokAkhir);
+                         tv_jmlStok.setText("STOK : "+stokAkhir);
+                     }
+
+                     @Override
+                     public void onCancelled(@NonNull DatabaseError error) {
+
+                     }
+                 });
+
+
+       //String test = ref.child(arrayListInventory.get(position).getKey()).child("history")
+       // Log.d("kiwo", test);
+//        ref.child(arrayListInventory.get(position)
+//                .getKey())
+//                .child("history").addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                Log.d("kiwo", snapshot.child("namBarang").getValue().toString());
+//              // String test= snapshot.child("namaBarang").getValue().toString();
+//               // int finalStokAkhir1;
+//          //      finalStokAkhir1 = Integer.valueOf(snapshot.child("stokAkhir").getValue());
+//        //        Log.d("kiwo", String.valueOf(finalStokAkhir1));
+////                String finalStokAkhir = String.valueOf(finalStokAkhir1);
+//             //  tv_jmlStok.setText("Stok : "+ test);
+//            }
+
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+
+
+
 
 
         return view;

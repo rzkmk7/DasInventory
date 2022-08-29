@@ -22,6 +22,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 public class FormInventory extends DialogFragment {
    /* public FormInventory(String a) {
         this.a = a;
@@ -40,7 +45,7 @@ public class FormInventory extends DialogFragment {
        TextView et_jmlStok = view.findViewById(R.id.et_jmlStok);
        TextView et_type = view.findViewById(R.id.et_type);
        TextView et_ket = view.findViewById(R.id.et_ket);
-        TextView dateInvForm = view.findViewById(R.id.invFormDate);
+    //    TextView dateInvForm = view.findViewById(R.id.invFormDate);
        Button btn_invSave = view.findViewById(R.id.btn_invSave);
 
         btn_invSave.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +55,10 @@ public class FormInventory extends DialogFragment {
                 String jmlStok = et_jmlStok.getText().toString();
                 String ket = et_ket.getText().toString();
                 String type = et_type.getText().toString();
-                String date = dateInvForm.getText().toString();
+                SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+                Date c = Calendar.getInstance().getTime();
+                String date = df.format(c);
+                //String date = dateInvForm.getText().toString();
                 String stokAkhir = jmlStok;
 
                 if(TextUtils.isEmpty(namaBarang)){

@@ -39,13 +39,7 @@
             android:layout_height="wrap_content"
             android:hint="Jumlah Barang"
             android:inputType="number"/>
-        <EditText
-            android:id="@+id/invFormDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="DateAdded"
-            android:inputType="datetime"
-            />
+
         <EditText
             android:id="@+id/et_type"
             android:layout_width="match_parent"

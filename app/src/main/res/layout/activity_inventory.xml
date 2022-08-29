@@ -28,13 +28,22 @@
         app:tint="@color/white"
         android:id="@+id/invHome"/>
 
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom|left"
+        android:hint="Search"
+        android:background="@color/white"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/invSearch"/>
 
     <ImageButton
         android:id="@+id/delAllInv"
         android:layout_width="64dp"
         android:layout_height="53dp"
-        android:layout_gravity="bottom|left"
-        android:layout_marginLeft="40dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="40dp"
         android:backgroundTint="#164176"
         android:cropToPadding="true"
         android:scaleType="centerCrop"
@@ -45,8 +54,8 @@
         android:id="@+id/refInv"
         android:layout_width="64dp"
         android:layout_height="53dp"
-        android:layout_gravity="bottom|right"
-        android:layout_marginRight="40dp"
+        android:layout_gravity="top|right"
+        android:layout_marginRight="0dp"
         android:backgroundTint="#164176"
         android:cropToPadding="true"
         android:scaleType="centerCrop"

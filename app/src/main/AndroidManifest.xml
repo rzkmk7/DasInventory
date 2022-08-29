@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.XyzStudio.dasinventory">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- Permissions for internet -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage"/>
+    <!-- Permissions for internet -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -13,7 +17,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DasInventory">
+        android:theme="@style/Theme.DasInventory"
+        android:requestLegacyExternalStorage="true">
         <activity
             android:name=".History"
             android:exported="false"
@@ -69,7 +74,8 @@
         <!-- android:exported="true" /> -->
         <activity
             android:name=".Inventory"
-            android:exported="true" />
+            android:exported="true"
+            />
         <activity
             android:name=".CaptureAct"
             android:screenOrientation="portrait"
