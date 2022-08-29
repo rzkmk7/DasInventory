@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:gravity="center"
             android:textSize="25sp"
-            android:text="Item Barang"
+            android:text="Form Inventory"
             android:textStyle="bold"
             android:textColor="@color/white"
             />
@@ -28,35 +28,59 @@
         android:orientation="vertical"
         android:padding="20dp">
         <EditText
-            android:id="@+id/ed_namaBarangBil"
+            android:id="@+id/ed_tempatBil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nama Barang"
+            android:hint="Tempat "
             android:inputType="textCapSentences"/>
-        <EditText
-            android:id="@+id/ed_jmlStokBil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Jumlah Barang"
-            android:inputType="number"/>
         <EditText
             android:id="@+id/ed_typeBil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Type"
-            android:inputType="textCapSentences"/>
+            android:hint="Type "
+            android:inputType="number"/>
         <EditText
-            android:id="@+id/ed_ketBil"
+            android:id="@+id/ed_snBil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Keterangan"
-            android:inputType="textCapSentences"/>
+            android:hint="SN"
+            android:inputType="number"/>
+        <EditText
+            android:id="@+id/ed_counterAwalBil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Counter Awal"
+            android:inputType="number"/>
+        <EditText
+            android:id="@+id/ed_biayaBil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Biaya Per-copy"
+            android:inputType="number"/>
         <Button
-            android:id="@+id/ed_btn_bilSave"
+            android:id="@+id/btn_edSaveBil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Save"/>
+        <EditText
+            android:id="@+id/ed_counterAkhirBil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Counter Akhir"
+            android:inputType="number"/>
+        <EditText
+            android:id="@+id/ed_totalBiayaBil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Total Biaya"
+            android:inputType="number"/>
+        <Button
+            android:id="@+id/btn_edHitungBil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Hitung"/>
 
 
 
