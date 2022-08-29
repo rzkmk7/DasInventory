@@ -20,9 +20,10 @@ public class AdapterBilling<context> extends ArrayAdapter<BillingData> {
 
     Context context;
     private OnClickListener mListener;
+    private OnClickListener mListenerDel;
     public List<BillingData> arrayListBilling;
 
-    public AdapterBilling(@NonNull Context context, List<BillingData> arrayListBilling, OnClickListener mListener) {
+    public AdapterBilling(@NonNull Context context, List<BillingData> arrayListBilling, OnClickListener mListener, OnClickListenerDel mListenerDel) {
         super(context, R.layout.activity_billing_item, arrayListBilling);
 
         this.context = context;
@@ -38,10 +39,16 @@ public class AdapterBilling<context> extends ArrayAdapter<BillingData> {
         TextView tv_snBil = view.findViewById(R.id.tv_snBil);
 
         ImageButton ed_bil = view.findViewById(R.id.ed_bil);
+        ImageButton ed_bilDel = view.findViewById(R.id.ed_bilDel);
 
         ed_bil.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mListener.onClick(position);
+            }
+        });
+        ed_bilDel.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mListenerDel.onClick(position);
             }
         });
 
@@ -54,6 +61,9 @@ public class AdapterBilling<context> extends ArrayAdapter<BillingData> {
     }
 
     public interface OnClickListener {
+        public void onClick(Integer message);
+    }
+    public interface OnClickListenerDel {
         public void onClick(Integer message);
     }
 }

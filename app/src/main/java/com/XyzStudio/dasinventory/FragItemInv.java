@@ -102,7 +102,12 @@ public class FragItemInv extends DialogFragment {
 //
 
 
-                    database.child("Inventory").child(key).setValue(new InventoryData(namaBarang, jmlStok, type, ket,date,stokAkhir)).addOnSuccessListener((new OnSuccessListener<Void>() {
+                    database.child("Inventory").child(key).setValue(new InventoryData(namaBarang
+                            , jmlStok
+                            , type
+                            , ket
+                            ,date
+                            ,stokAkhir)).addOnSuccessListener((new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();
