@@ -18,24 +18,24 @@ public class BillingItem extends AppCompatActivity {
 
         Button ed_frag_billing;
         ImageButton hitungBil;
-        ed_frag_billing = findViewById(R.id.rr);
-        hitungBil = findViewById(R.id.hitungBil);
+       // ed_frag_billing = findViewById(R.id.rr);
+       // hitungBil = findViewById(R.id.hitungBil);
 
-        ed_frag_billing.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Log.i("ttt","asdaasdasd");
-                /* startActivity(new Intent(Inventory.this,FormInventory.class));*/
-                FragBilling fragBilling = new FragBilling("","","","","");
-                fragBilling.show(getSupportFragmentManager(), "activity_frag_billing");
-            }
-        });
-        hitungBil.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                /* startActivity(new Intent(Inventory.this,FormInventory.class));*/
-                FormInventory formInventory = new FormInventory();
-                formInventory.show(getSupportFragmentManager(), "activity_hitung_billing");
-            }
-        });
+//        ed_frag_billing.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                Log.i("ttt","asdaasdasd");
+//                /* startActivity(new Intent(Inventory.this,FormInventory.class));*/
+//                FragBilling fragBilling = new FragBilling("","","","","");
+//                fragBilling.show(getSupportFragmentManager(), "activity_frag_billing");
+//            }
+//        });
+//        hitungBil.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                /* startActivity(new Intent(Inventory.this,FormInventory.class));*/
+//                FormInventory formInventory = new FormInventory();
+//                formInventory.show(getSupportFragmentManager(), "activity_hitung_billing");
+//            }
+//        });
 
     }
 }

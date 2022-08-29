@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,7 +37,7 @@ public class AdapterBilling<context> extends ArrayAdapter<BillingData> {
         TextView tv_typeBil = view.findViewById(R.id.tv_typeBil);
         TextView tv_snBil = view.findViewById(R.id.tv_snBil);
 
-        Button ed_bil = view.findViewById(R.id.ed_bil);
+        ImageButton ed_bil = view.findViewById(R.id.ed_bil);
 
         ed_bil.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -44,9 +45,9 @@ public class AdapterBilling<context> extends ArrayAdapter<BillingData> {
             }
         });
 
-//        tv_tempatBil.setText(arrayListBilling.get(position).gette());
-//        tv_typeBil.setText(arrayListBilling.get(position).tv_typeBil());
-//        tv_snBil.setText(arrayListBilling.get(position).tv_snBil());
+        tv_tempatBil.setText("Tempat  :"+arrayListBilling.get(position).getTempatBil());
+       tv_typeBil.setText("Type       :"+arrayListBilling.get(position).getTypeBil());
+        tv_snBil.setText("Sn          :"+arrayListBilling.get(position).getSnBil());
 
 
         return view;

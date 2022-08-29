@@ -39,9 +39,9 @@ public class FormBilling extends DialogFragment {
         TextView et_snBil = view.findViewById(R.id.et_snBil);
         TextView et_biayaBil = view.findViewById(R.id.et_biayaBil);
         TextView et_counterAwalBil = view.findViewById(R.id.et_counterAwalBil);
-        TextView et_counterAkhirBil = view.findViewById(R.id.et_counterAkhirBil);
-        TextView et_totalBiayaBil = view.findViewById(R.id.et_totalBiayaBil);
-        Button btn_hitungBil = view.findViewById(R.id.btn_hitungBil);
+//        TextView et_counterAkhirBil = view.findViewById(R.id.et_counterAkhirBil);
+//        TextView et_totalBiayaBil = view.findViewById(R.id.et_totalBiayaBil);
+//        Button btn_hitungBil = view.findViewById(R.id.btn_hitungBil);
         Button btn_saveBil = view.findViewById(R.id.btn_saveBil);
 
         btn_saveBil.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +52,7 @@ public class FormBilling extends DialogFragment {
                 String snBil = et_snBil.getText().toString();
                 Integer biayaBil = Integer.parseInt(et_biayaBil.getText().toString());
                 Integer counterAwalBil = Integer.parseInt(et_counterAwalBil.getText().toString());
-                Integer counterAkhir = Integer.valueOf(counterAwalBil);
+                Integer counterAkhirBil = Integer.valueOf(counterAwalBil);
 
                 if(TextUtils.isEmpty(tempatBil)){
                     input((EditText) et_tempatBil, "masukan tempat" );
@@ -65,7 +65,14 @@ public class FormBilling extends DialogFragment {
                 }else if (TextUtils.isEmpty(counterAwal)){
                     input((EditText) et_counterAwalBil, "masukan counter" );
                 }*/else {
-                    database.child("Billing").push().setValue(new BillingData(tempatBil, typeBil, snBil, biayaBil,counterAwalBil)).addOnSuccessListener((new OnSuccessListener<Void>() {
+                    database.child("Billing").push().setValue
+                            (new BillingData(tempatBil
+                            , typeBil
+                            , snBil
+                             , biayaBil
+                             ,counterAwalBil
+                            ,counterAkhirBil
+                            ,0)).addOnSuccessListener((new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();

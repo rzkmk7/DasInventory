@@ -77,7 +77,13 @@ public class BillingData {
 
     private String Key;
 
-    public BillingData(String tempatBil,String typeBil, String snBil, int biaya, int counterAwalBil, int counterAkhirBil, int totalBiayaBil) {
+    public BillingData(String tempatBil
+            ,String typeBil
+            , String snBil
+            , int biaya
+            , int counterAwalBil
+            , int counterAkhirBil
+            , int totalBiayaBil) {
         this.typeBil = typeBil;
         this.snBil = snBil;
         this.biaya = biaya;
