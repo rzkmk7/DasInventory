@@ -29,6 +29,7 @@
         android:id="@+id/invHome"/>
 
     <EditText
+        android:id="@+id/invSearch"
         android:layout_width="100dp"
         android:layout_height="30dp"
         android:layout_gravity="bottom|left"
@@ -36,18 +37,30 @@
         android:background="@color/white"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="30dp"
-        android:id="@+id/invSearch"/>
+        />
 
     <ImageButton
         android:id="@+id/delAllInv"
         android:layout_width="64dp"
         android:layout_height="53dp"
         android:layout_gravity="bottom|right"
-        android:layout_marginRight="40dp"
+        android:layout_marginRight="10dp"
         android:backgroundTint="#164176"
         android:cropToPadding="true"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_delete"
+        app:tint="@color/white" />
+
+    <ImageButton
+        android:id="@+id/exportInv"
+        android:layout_width="58dp"
+        android:layout_height="52dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="80dp"
+        android:backgroundTint="#164176"
+        android:cropToPadding="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_export"
         app:tint="@color/white" />
 
     <ImageButton
@@ -99,7 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#164176"
-        android:src="@drawable/ic_edit"
+        android:src="@drawable/ic_qrcode"
         app:backgroundTint="@null"
         app:tint="@null"
         android:layout_gravity="bottom|right"

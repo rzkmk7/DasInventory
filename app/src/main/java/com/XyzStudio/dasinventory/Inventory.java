@@ -54,6 +54,7 @@ public class Inventory extends AppCompatActivity {
     ImageButton invHome;
     ImageButton delAllInv;
     ImageButton refInv;
+    ImageButton exportInv;
     EditText et_invSearch;
 
     ListView listView;
@@ -79,6 +80,7 @@ public class Inventory extends AppCompatActivity {
         refInv =  findViewById(R.id.refInv);
         fab_add_scan = findViewById(R.id.fab_add_scan);
         et_invSearch = findViewById(R.id.invSearch);
+        exportInv = findViewById(R.id.exportInv);
 
 
         adapter = new AdapterInventory(this, inventoryArrayList, new AdapterInventory.OnClickListener() {
@@ -162,18 +164,22 @@ public class Inventory extends AppCompatActivity {
                 alert.show();
             }
         });
-
+        exportInv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                searchByName("Jaa");
+                exportDataIntoWorkbook(context, "kiwa.xlsx", inventoryArrayList);
+            }
+        });
 
         refInv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                searchByName("Jaa");
-//                finish();
-//                overridePendingTransition(1, 1);
-//                startActivity(getIntent());
-//                overridePendingTransition(1, 1);
-
-                exportDataIntoWorkbook(context, "kiwa.xlsx", inventoryArrayList);
+                finish();
+                overridePendingTransition(1, 1);
+                startActivity(getIntent());
+                overridePendingTransition(1, 1);
             }
         });
 //        et_invSearch.addTextChangedListener(new TextWatcher() {
