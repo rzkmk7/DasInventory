@@ -54,7 +54,7 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_inventory_item, null, true);
-        Log.d("bbb","asdaasdasd");
+//        Log.d("bbb","asdaasdasd");
         TextView tv_namaBarang = view.findViewById(R.id.tv_namaBarang);
         TextView tv_type = view.findViewById(R.id.tv_type);
         TextView tv_jmlStok = view.findViewById(R.id.tv_jmlStok);
@@ -72,13 +72,13 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
         ed_inv.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mListener.onClick(position);
-                Log.d("zzz","asdaasdasd");
+//                Log.d("zzz","asdaasdasd");
             }
         });
         ed_invHistory.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mListenerHistory.onClick(position);
-                Log.d("aaa","asdaasdasd");
+//                Log.d("aaa","asdaasdasd");
             }
         });
         ed_invDel.setOnClickListener(new View.OnClickListener() {
@@ -117,7 +117,7 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 ambil = Integer.parseInt(charSequence.toString());
 //                searchByName(charSequence.toString());
-                Log.d("testa", String.valueOf(ambil));
+//                Log.d("testa", String.valueOf(ambil));
             }
 
             @Override
@@ -127,14 +127,14 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
         });
         btn_saveStokInv.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Integer stokAkhir = Integer.parseInt(arrayListInventory.get(position).getJmlStok()) - ambil;
+                Integer stokAkhir = Integer.parseInt(arrayListInventory.get(position).getStokAkhir()) - ambil;
                 String stokAkhirItem = String.valueOf(stokAkhir);
                 //getcurrentDate
                 SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
                 Date c = Calendar.getInstance().getTime();
                 String formattedDate = df.format(c);
-                notifyDataSetChanged();
                 //test set value
+                Log.d("testa", String.valueOf(ambil));
                 ref.child(arrayListInventory.get(position).getKey()).child("stokAkhir").setValue(stokAkhirItem);
         //        adapter.notifyDataSetChanged();
 
@@ -154,26 +154,28 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
                         Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();
                     }
                 }));
+                notifyDataSetChanged();
             }
         });
 
         tv_namaBarang.setText("Nama : "+arrayListInventory.get(position).getNamaBarang());
         tv_type.setText("Type : "+arrayListInventory.get(position).getType());
+        tv_jmlStok.setText("STOK : "+arrayListInventory.get(position).getStokAkhir());
 
         //stok akhir view item blm nge reference ke last history database
-       ref.child(arrayListInventory.get(position).getKey()).addValueEventListener(new ValueEventListener() {
-                     @Override
-                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                         String stokAkhir = snapshot.child("stokAkhir").getValue().toString();
-                         Log.d("kiwo", stokAkhir);
-                         tv_jmlStok.setText("STOK : "+stokAkhir);
-                     }
-
-                     @Override
-                     public void onCancelled(@NonNull DatabaseError error) {
-
-                     }
-                 });
+//       ref.child(arrayListInventory.get(position).getKey()).addValueEventListener(new ValueEventListener() {
+//                     @Override
+//                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                         String stokAkhir = snapshot.child("stokAkhir").getValue().toString();
+//                         Log.d("kiwo", stokAkhir);
+//                         tv_jmlStok.setText("STOK : "+stokAkhir);
+//                     }
+//
+//                     @Override
+//                     public void onCancelled(@NonNull DatabaseError error) {
+//
+//                     }
+//                 });
 
 
        //String test = ref.child(arrayListInventory.get(position).getKey()).child("history")
