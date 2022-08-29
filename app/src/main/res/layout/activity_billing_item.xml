@@ -45,14 +45,30 @@
         android:id="@+id/ed_bil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="52dp"
         android:layout_marginBottom="8dp"
         android:baselineAlignBottom="false"
         android:contentDescription="edit"
         android:minHeight="48dp"
         android:src="@drawable/ic_edit"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_snBil"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="273dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/ed_bilDel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+
+        android:baselineAlignBottom="false"
+        android:contentDescription="aa"
+        android:minHeight="48dp"
+        android:src="@drawable/ic_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_snBil" />
+        app:layout_constraintStart_toEndOf="@+id/ed_bil" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
