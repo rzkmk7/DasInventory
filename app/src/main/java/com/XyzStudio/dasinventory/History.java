@@ -40,7 +40,7 @@ public class History extends AppCompatActivity {
     invAdapterHistory adapter;
     ListView listView;
     Context context;
-
+    String invKey = "";
     public FirebaseDatabase database;
     public DatabaseReference ref;
 
@@ -50,7 +50,7 @@ public class History extends AppCompatActivity {
         setContentView(R.layout.activity_inv_history);
 
         Bundle extras = getIntent().getExtras();
-        String invKey = "";
+
 
         if (extras != null) {
             invKey = extras.getString("invKey");
@@ -91,14 +91,14 @@ public class History extends AppCompatActivity {
 
     public void getData(){
         historyDataArrayList.clear();
-        ref.addChildEventListener(new ChildEventListener(){
+        ref.child(invKey).child("history").addChildEventListener(new ChildEventListener(){
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 Log.d("tag",snapshot.getKey());
-//                HistoryData history = snapshot.getValue(HistoryData.class);
-//                history.setKey(snapshot.getKey());
-//                historyDataArrayList.add(history);
-//                adapter.notifyDataSetChanged(); //teeuingggg
+                HistoryData history = snapshot.getValue(HistoryData.class);
+                history.setKey(snapshot.getKey());
+                historyDataArrayList.add(history);
+                adapter.notifyDataSetChanged(); //teeuingggg
 
             }
 
