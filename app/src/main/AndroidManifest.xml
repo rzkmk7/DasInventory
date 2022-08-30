@@ -19,11 +19,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DasInventory">
-        <activity
-            android:name=".FragLap"
-            android:exported="false"
-            android:label="@string/title_activity_frag_lap"
-            android:theme="@style/Theme.DasInventory.NoActionBar" />
+<!--        <activity-->
+<!--            android:name=".FragLap"-->
+<!--            android:exported="false"-->
+<!--            android:label="@string/title_activity_frag_lap"-->
+<!--            android:theme="@style/Theme.DasInventory.NoActionBar" />-->
         <activity
             android:name=".History"
             android:exported="false"

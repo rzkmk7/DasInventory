@@ -89,7 +89,8 @@ public class Laporan extends AppCompatActivity {
                         laporanArrayList.get(message).getAtt(),
                         laporanArrayList.get(message).getKey()
                 );
-                FragLap.show(getSupportFragmentManager(), "activity_frag_lap");
+
+                fragLap.show(getSupportFragmentManager(), "activity_frag_lap");
             }
         }, new AdapterLaporan.OnClickListenerDel() {
 
