@@ -49,6 +49,15 @@ public class History extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inv_history);
 
+        Bundle extras = getIntent().getExtras();
+        String invKey = "";
+
+        if (extras != null) {
+            invKey = extras.getString("invKey");
+            //The key argument here must match that used in the other activity
+        }
+        Log.d("testa", invKey);
+
         database = FirebaseDatabase.getInstance();
         ref = database.getReference("Inventory");
 
@@ -86,10 +95,10 @@ public class History extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 Log.d("tag",snapshot.getKey());
-                HistoryData history = snapshot.getValue(HistoryData.class);
-                history.setKey(snapshot.getKey());
-                historyDataArrayList.add(history);
-                adapter.notifyDataSetChanged(); //teeuingggg
+//                HistoryData history = snapshot.getValue(HistoryData.class);
+//                history.setKey(snapshot.getKey());
+//                historyDataArrayList.add(history);
+//                adapter.notifyDataSetChanged(); //teeuingggg
 
             }
 

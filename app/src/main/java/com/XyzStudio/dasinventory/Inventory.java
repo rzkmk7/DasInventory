@@ -102,7 +102,7 @@ public class Inventory extends AppCompatActivity {
         }, new AdapterInventory.OnClickListenerHistory() {
             @Override
             public void onClick(Integer msg) {
-                startActivity(new Intent(Inventory.this,History.class));
+                startActivity(new Intent(Inventory.this,History.class).putExtra("invKey", inventoryArrayList.get(msg).getKey()));
                 Log.d("asd", "Kontol");
             }
         }
