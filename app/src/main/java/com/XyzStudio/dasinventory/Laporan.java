@@ -62,7 +62,7 @@ public class Laporan extends AppCompatActivity {
         dellAllLap =findViewById(R.id.delAllLap);
         btnRefLap=findViewById(R.id.btnRefLap);
         btnLapHome=findViewById(R.id.btnLapHome);
-        expLap=findViewById(R.id.expLap);
+        expLap=findViewById(R.id.exportLap);
 
         adapter = new AdapterLaporan(this, laporanArrayList);
         adapter.arrayListCustomer.clear();
