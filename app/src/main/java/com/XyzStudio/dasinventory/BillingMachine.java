@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 
@@ -31,6 +32,7 @@ public class BillingMachine extends AppCompatActivity {
     AdapterBilling adapter;
     public static ArrayList<BillingData> billingArrayList = new ArrayList<>();
     Context context;
+    ImageButton btnBilHome
 
     public FirebaseDatabase database;
     public DatabaseReference ref;
@@ -42,7 +44,7 @@ public class BillingMachine extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         ref = database.getReference("Billing");
-
+        btnBilHome = findViewById(R.id.btnBilHome);
         context = this;
         fab_add_billing = findViewById(R.id.fab_add_billing);
 
@@ -82,6 +84,13 @@ public class BillingMachine extends AppCompatActivity {
                 FormBilling formBilling = new FormBilling();
                 formBilling.show(getSupportFragmentManager(), "activity_form_billing");
             }
+        });
+        btnBilHome.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                /* startActivity(new Intent(Inventory.this,FormInventory.class));*/
+
+                    startActivity(new Intent(BillingMachine.this,Home.class));
+
         });
         getData();
     }

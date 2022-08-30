@@ -50,15 +50,15 @@
                 android:id="@+id/btnMinus"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:layout_marginStart="6dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
                 android:background="@drawable/button_selector"
                 android:baselineAlignBottom="false"
                 android:contentDescription="edit"
                 android:defaultFocusHighlightEnabled="true"
                 android:minHeight="48dp"
                 android:src="@drawable/ic_minus"
-                app:layout_constraintBottom_toTopOf="@+id/tv_type"
-                app:layout_constraintStart_toEndOf="@+id/tv_jmlStok"
+                app:layout_constraintEnd_toStartOf="@+id/et_ambil"
                 app:layout_constraintTop_toBottomOf="@+id/tv_namaBarang" />
 
             <ImageButton
@@ -66,15 +66,13 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
 
+                android:layout_marginEnd="16dp"
                 android:background="@drawable/button_selector"
                 android:baselineAlignBottom="false"
                 android:contentDescription="edit"
                 android:src="@drawable/ic_plus"
-                app:layout_constraintBottom_toTopOf="@+id/tv_type"
                 app:layout_constraintEnd_toStartOf="@+id/btn_saveStokInv"
-                app:layout_constraintStart_toEndOf="@+id/et_ambil"
-                app:layout_constraintTop_toBottomOf="@+id/tv_namaBarang"
-                app:layout_constraintVertical_bias="0.507" />
+                tools:layout_editor_absoluteY="80dp" />
 
             <ImageButton
                 android:layout_width="40dp"
@@ -102,12 +100,11 @@
                 android:id="@+id/et_ambil"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="6dp"
+                android:layout_marginEnd="8dp"
                 android:gravity="center"
                 android:inputType="number"
-                app:layout_constraintBottom_toTopOf="@+id/tv_type"
-                app:layout_constraintStart_toEndOf="@+id/btnMinus"
-                app:layout_constraintTop_toBottomOf="@+id/tv_namaBarang" />
+                app:layout_constraintEnd_toStartOf="@+id/btnPlus"
+                tools:layout_editor_absoluteY="80dp" />
 
             <TextView
                 android:id="@+id/tv_namaBarang"
@@ -123,7 +120,7 @@
 
             <TextView
                 android:id="@+id/tv_jmlStok"
-                android:layout_width="100dp"
+                android:layout_width="135dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
                 android:gravity="center_vertical"

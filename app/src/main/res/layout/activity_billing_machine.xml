@@ -58,7 +58,7 @@
         app:tint="@null" />
 
     <ImageButton
-        android:id="@+id/invHome"
+        android:id="@+id/btnBilHome"
         android:layout_width="86dp"
         android:layout_height="73dp"
         android:layout_gravity="bottom|center"
