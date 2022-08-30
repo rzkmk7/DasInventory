@@ -5,14 +5,16 @@
     android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:minWidth="1000dp"
-    android:minHeight="450dp">
+    >
 
     <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="411dp"
-        android:layout_height="90dp"
-        android:background="#0f3498">
+        android:layout_height="60dp"
+        android:background="#0f3498"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="match_parent"

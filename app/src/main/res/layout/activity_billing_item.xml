@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/tv_tempatBil"
-        android:layout_width="260dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -20,7 +20,7 @@
 
     <TextView
         android:id="@+id/tv_typeBil"
-        android:layout_width="100dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:gravity="center_vertical"

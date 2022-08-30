@@ -32,7 +32,8 @@ public class BillingMachine extends AppCompatActivity {
     AdapterBilling adapter;
     public static ArrayList<BillingData> billingArrayList = new ArrayList<>();
     Context context;
-    ImageButton btnBilHome
+    ImageButton btnBilHome;
+    ImageButton refBil;
 
     public FirebaseDatabase database;
     public DatabaseReference ref;
@@ -47,7 +48,7 @@ public class BillingMachine extends AppCompatActivity {
         btnBilHome = findViewById(R.id.btnBilHome);
         context = this;
         fab_add_billing = findViewById(R.id.fab_add_billing);
-
+        refBil= findViewById(R.id.refBil);
         adapter = new AdapterBilling(this, billingArrayList, new AdapterBilling.OnClickListener(){
             @Override
             public void onClick(Integer msg){
@@ -89,8 +90,19 @@ public class BillingMachine extends AppCompatActivity {
             public void onClick(View v) {
                 /* startActivity(new Intent(Inventory.this,FormInventory.class));*/
 
-                    startActivity(new Intent(BillingMachine.this,Home.class));
+                startActivity(new Intent(BillingMachine.this, Home.class));
+            }
 
+        });
+        refBil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                searchByName("Jaa");
+                finish();
+                overridePendingTransition(1, 1);
+                startActivity(getIntent());
+                overridePendingTransition(1, 1);
+            }
         });
         getData();
     }
