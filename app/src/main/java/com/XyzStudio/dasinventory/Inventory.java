@@ -97,7 +97,7 @@ public class Inventory extends AppCompatActivity {
             @Override
             public void onClick(Integer msg){
                 ref.child(inventoryArrayList.get(msg).getKey()).removeValue();
-                finish();
+                refresh();
             }
         }, new AdapterInventory.OnClickListenerHistory() {
             @Override

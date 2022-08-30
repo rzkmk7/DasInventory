@@ -77,7 +77,7 @@ public class Laporan extends AppCompatActivity {
         btnLapHome=findViewById(R.id.btnLapHome);
         expLap=findViewById(R.id.exportLap);
 
-        adapter = new AdapterLaporan(this, laporanArrayList, new AdapterInventory.OnClickListener() {
+        adapter = new AdapterLaporan(this, laporanArrayList, new AdapterLaporan.OnClickListener() {
 
             @Override
             public void onClick(Integer message) {
@@ -90,12 +90,15 @@ public class Laporan extends AppCompatActivity {
 //                        laporanArrayList.get(message).getKey());
 //                fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
             }
-        }, new AdapterInventory.OnClickListenerDel() {
+        }, new AdapterLaporan.OnClickListenerDel() {
 
             @Override
             public void onClick(Integer message) {
-                ref.child(laporanArrayList.get(message).getKey()).removeValue();
-                finish();
+                Log.d("lala",Integer.valueOf(message).toString());
+                Log.d("lala", ref.child(users.getUid()).child("Laporan").child(laporanArrayList.get(message).getKey()).toString());
+                ref.child(users.getUid()).child("Laporan").child(laporanArrayList.get(message).getKey()).removeValue();
+                //finish();
+                refresh();
             }
         });
         adapter.arrayListCustomer.clear();
@@ -160,12 +163,17 @@ public class Laporan extends AppCompatActivity {
         getData();
     }
 
+    public void refresh(){
+        startActivity(getIntent());
+    }
+
     public void getData(){
         laporanArrayList.clear();
         ref.child(users.getUid()).child("Laporan").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 LaporanData laporan = snapshot.getValue(LaporanData.class);
+                laporan.setKey(snapshot.getKey());
                 laporanArrayList.add(laporan);
                 adapter.notifyDataSetChanged();
                 
