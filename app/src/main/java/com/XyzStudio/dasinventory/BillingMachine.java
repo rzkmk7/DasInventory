@@ -2,6 +2,7 @@ package com.XyzStudio.dasinventory;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -34,7 +35,7 @@ public class BillingMachine extends AppCompatActivity {
     Context context;
     ImageButton btnBilHome;
     ImageButton refBil;
-
+    ImageButton dellAllBil;
     public FirebaseDatabase database;
     public DatabaseReference ref;
 
@@ -49,6 +50,7 @@ public class BillingMachine extends AppCompatActivity {
         context = this;
         fab_add_billing = findViewById(R.id.fab_add_billing);
         refBil= findViewById(R.id.refBil);
+        dellAllBil= findViewById(R.id.delAllBil);
         adapter = new AdapterBilling(this, billingArrayList, new AdapterBilling.OnClickListener(){
             @Override
             public void onClick(Integer msg){
@@ -94,6 +96,30 @@ public class BillingMachine extends AppCompatActivity {
             }
 
         });
+        dellAllBil.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Log.i("kliked","s");
+                AlertDialog.Builder builder = new AlertDialog.Builder(BillingMachine.this);
+                builder.setTitle("Do this action");
+                builder.setMessage("delete semua data?");
+                builder.setPositiveButton("YES", (dialog, which) -> {
+                    // Do do my action here
+                    ref.removeValue();
+                    finish();
+                    overridePendingTransition(1, 1);
+                    startActivity(getIntent());
+                    overridePendingTransition(1, 1);
+            });
+                builder.setNegativeButton("NO", (dialog, which) -> {
+                    // I do not need any action here you might
+                    dialog.dismiss();
+                });
+
+                AlertDialog alert = builder.create();
+                alert.show();
+
+            }
+        });
         refBil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,6 +131,12 @@ public class BillingMachine extends AppCompatActivity {
             }
         });
         getData();
+    }
+    public void refresh(){
+        // finish();
+        //overridePendingTransition(1, 1);
+        startActivity(getIntent());
+        // overridePendingTransition(1, 1);
     }
     public void getData(){
         billingArrayList.clear();

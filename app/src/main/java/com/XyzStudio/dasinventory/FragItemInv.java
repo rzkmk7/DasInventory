@@ -112,7 +112,7 @@ public class FragItemInv extends DialogFragment {
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();
                             dismiss();
-                            getActivity().recreate();
+                            ((Inventory)getActivity()).refresh();
 
                         }
                     }));

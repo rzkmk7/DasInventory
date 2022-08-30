@@ -111,7 +111,9 @@ public class FragBilling extends DialogFragment {
                 String typeBil = ed_typeBil.getText().toString();
                 int biaya = Integer.parseInt(ed_biayaBil.getText().toString());
                 int counterAwalBil = Integer.parseInt(ed_counterAwalBil.getText().toString());
+
                 int counterAkhirBil = Integer.parseInt(ed_counterAkhirBil.getText().toString());
+
                 int totalBiayaBil = Integer.parseInt(ed_totalBiayaBil.getText().toString());
 //
                 if (TextUtils.isEmpty(tempatBil)) {
@@ -135,6 +137,8 @@ public class FragBilling extends DialogFragment {
                     )).addOnSuccessListener((new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
+                            dismiss();
+                            ((BillingMachine)getActivity()).refresh();
                             Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();
                         }
                     }));

@@ -152,6 +152,9 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();
+                        //refresh
+                        ((Inventory)context).refresh();
+                        //((Inventory)context).recreate();
                     }
                 }));
                 notifyDataSetChanged();

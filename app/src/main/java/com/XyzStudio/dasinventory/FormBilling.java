@@ -75,6 +75,8 @@ public class FormBilling extends DialogFragment {
                             ,0)).addOnSuccessListener((new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
+                            dismiss();
+                            ((BillingMachine)getActivity()).refresh();
                             Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();
                         }
                     }));

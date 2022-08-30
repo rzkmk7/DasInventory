@@ -2,6 +2,7 @@ package com.XyzStudio.dasinventory;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -10,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.Toast;
@@ -37,6 +39,10 @@ public class Laporan extends AppCompatActivity {
     AdapterLaporan adapter;
     public static ArrayList<LaporanData> laporanArrayList = new ArrayList<>();
     Context context;
+    ImageButton dellAllLap;
+    ImageButton btnRefLap;
+    ImageButton btnLapHome;
+    ImageButton expLap;
 
     private FirebaseUser users;
     public FirebaseDatabase database;
@@ -53,6 +59,10 @@ public class Laporan extends AppCompatActivity {
         users = FirebaseAuth.getInstance().getCurrentUser();
         database = FirebaseDatabase.getInstance();
         ref = database.getReference("Users");
+        dellAllLap =findViewById(R.id.delAllLap);
+        btnRefLap=findViewById(R.id.btnRefLap);
+        btnLapHome=findViewById(R.id.btnLapHome);
+        expLap=findViewById(R.id.expLap);
 
         adapter = new AdapterLaporan(this, laporanArrayList);
         adapter.arrayListCustomer.clear();
@@ -67,6 +77,51 @@ public class Laporan extends AppCompatActivity {
                 startActivity(new Intent(Laporan.this,FormLaporan.class));
             }
         });
+        btnLapHome.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(Laporan.this,Home.class));
+            }
+        });
+
+        expLap.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //export laporan
+            }
+        });
+
+        dellAllLap.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Log.i("kliked","s");
+                AlertDialog.Builder builder = new AlertDialog.Builder(Laporan.this);
+                builder.setTitle("Do this action");
+                builder.setMessage("delete semua data?");
+                builder.setPositiveButton("YES", (dialog, which) -> {
+                    // Do do my action here
+                    ref.child(users.getUid()).child("Laporan").removeValue();
+                    finish();
+                    overridePendingTransition(1, 1);
+                    startActivity(getIntent());
+                    overridePendingTransition(1, 1);
+                });
+                builder.setNegativeButton("NO", (dialog, which) -> {
+                    // I do not need any action here you might
+                    dialog.dismiss();
+                });
+
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
+
+        btnRefLap.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
+                overridePendingTransition(1, 1);
+                startActivity(getIntent());
+                overridePendingTransition(1, 1);
+            }
+        });
+
 
         getData();
     }

@@ -77,8 +77,10 @@ public class FormInventory extends DialogFragment {
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();
                             dismiss();
-                            getActivity().recreate();
+                        //  getActivity().recreate();
+                            //startActivity(new Intent(this, MainActivity.class));
 //                            refreshActivity();
+                            ((Inventory)getActivity()).refresh();
 
                            /* Fragment currentFragment = getActivity().getFragmentManager().findFragmentById(R.id.action_Second2Fragment_to_First2Fragment);
 

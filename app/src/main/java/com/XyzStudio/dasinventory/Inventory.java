@@ -323,7 +323,17 @@ public class Inventory extends AppCompatActivity {
 //            }).show();
         }
     });
+    public void rerfreshActivity(){
+        recreate();
 
+    }
+
+    public void refresh(){
+       // finish();
+        //overridePendingTransition(1, 1);
+        startActivity(getIntent());
+       // overridePendingTransition(1, 1);
+    }
 
 
     private void searchByName(String name) {
