@@ -20,7 +20,7 @@ public class AdapterBilling<context> extends ArrayAdapter<BillingData> {
 
     Context context;
     private OnClickListener mListener;
-    private OnClickListener mListenerDel;
+    private OnClickListenerDel mListenerDel;
     public List<BillingData> arrayListBilling;
 
     public AdapterBilling(@NonNull Context context, List<BillingData> arrayListBilling, OnClickListener mListener, OnClickListenerDel mListenerDel) {
@@ -29,6 +29,7 @@ public class AdapterBilling<context> extends ArrayAdapter<BillingData> {
         this.context = context;
         this.arrayListBilling = arrayListBilling;
         this.mListener = mListener;
+        this.mListenerDel = mListenerDel;
     }
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

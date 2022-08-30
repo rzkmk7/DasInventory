@@ -29,13 +29,14 @@ public class invAdapterHistory<context> extends ArrayAdapter<HistoryData> {
     public invAdapterHistory(@NonNull Context context, List<HistoryData> arrayListHistory, OnClickListener mListener) {
         super(context, R.layout.activity_history_item, arrayListHistory);
 
+        this.arrayListHistory = arrayListHistory;
         this.mListener = mListener;
         this.context = context;
 
     }
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_inv_history, null, true);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_history_item, null, true);
 
         TextView date = view.findViewById(R.id.tv_dateAmbil);
         TextView ambil = view.findViewById(R.id.tv_ambilStok);

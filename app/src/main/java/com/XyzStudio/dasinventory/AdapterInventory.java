@@ -42,7 +42,11 @@ public class AdapterInventory<context> extends ArrayAdapter<InventoryData> {
     public DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Inventory");
 
 
-    public AdapterInventory(@NonNull Context context, List<InventoryData> arrayListInventory, OnClickListener mListener, OnClickListenerDel mListenerDel, OnClickListenerHistory mListenerHistory) {
+    public AdapterInventory(@NonNull Context context,
+                            List<InventoryData> arrayListInventory,
+                            OnClickListener mListener,
+                            OnClickListenerDel mListenerDel,
+                            OnClickListenerHistory mListenerHistory) {
         super(context, R.layout.activity_inventory_item, arrayListInventory);
 
         this.context = context;

@@ -70,7 +70,7 @@ public class BillingMachine extends AppCompatActivity {
         }, new AdapterBilling.OnClickListenerDel() {
             @Override
             public void onClick(Integer msg) {
-                // ref.child(inventoryArrayList.get(msg).getKey()).removeValue();
+                 ref.child(billingArrayList.get(msg).getKey()).removeValue();
                // finish();
             }
         }
