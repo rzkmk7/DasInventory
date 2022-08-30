@@ -82,13 +82,14 @@ public class Laporan extends AppCompatActivity {
             @Override
             public void onClick(Integer message) {
 //                Log.d("asd", laporanArrayList.get(message).get());
-//                FragItemInv fragItemInv = new FragItemInv(
-//                        laporanArrayList.get(message).getTgl_laporan(),
-//                        laporanArrayList.get(message).getTempat_laporan(),
-//                        laporanArrayList.get(message).getType_mesin(),
-//                        laporanArrayList.get(message).getAtt(),
-//                        laporanArrayList.get(message).getKey());
-//                fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
+                FragLap fragLap = new FragLap(
+                        laporanArrayList.get(message).getTgl_laporan(),
+                        laporanArrayList.get(message).getTempat_laporan(),
+                        laporanArrayList.get(message).getType_mesin(),
+                        laporanArrayList.get(message).getAtt(),
+                        laporanArrayList.get(message).getKey()
+                );
+                FragLap.show(getSupportFragmentManager(), "activity_frag_lap");
             }
         }, new AdapterLaporan.OnClickListenerDel() {
 

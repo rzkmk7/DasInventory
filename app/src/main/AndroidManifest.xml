@@ -5,9 +5,9 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
-        tools:ignore="ScopedStorage"/>
-    <!-- Permissions for internet -->
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" /> <!-- Permissions for internet -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -15,16 +15,20 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DasInventory"
-        android:requestLegacyExternalStorage="true">
+        android:theme="@style/Theme.DasInventory">
+        <activity
+            android:name=".FragLap"
+            android:exported="false"
+            android:label="@string/title_activity_frag_lap"
+            android:theme="@style/Theme.DasInventory.NoActionBar" />
         <activity
             android:name=".History"
             android:exported="false"
             android:label="@string/title_activity_history"
-            android:theme="@style/Theme.DasInventory.NoActionBar" />
-        <!-- <activity -->
+            android:theme="@style/Theme.DasInventory.NoActionBar" /> <!-- <activity -->
         <!-- android:name=".HitungBilling" -->
         <!-- android:exported="false" /> -->
         <!-- <activity -->
@@ -70,8 +74,7 @@
         <!-- android:exported="true" /> -->
         <activity
             android:name=".Inventory"
-            android:exported="true"
-            />
+            android:exported="true" />
         <activity
             android:name=".CaptureAct"
             android:screenOrientation="portrait"
