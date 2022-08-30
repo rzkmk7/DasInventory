@@ -62,11 +62,11 @@ public class History extends AppCompatActivity {
         ref = database.getReference("Inventory");
 
 
-//        adapter = new invAdapterHistory(this, historyDataArrayList, new invAdapterHistory.OnClickListener() {
+        adapter = new invAdapterHistory(this, historyDataArrayList, new invAdapterHistory.OnClickListener() {
 //
 //            /// button click untuk item list konsepnya adapter ngasih tau tap location dengan mListener ke dalam posisi click >lalu diterima oleh inventory dengan posisi integer msg
-//            /*@Override
-//            public void onClick(Integer msg) {
+            @Override
+           public void onClick(Integer msg) {
 ////                Log.d("asd", inventoryArrayList.get(msg).getNamaBarang());
 ////                FragItemInv fragItemInv = new FragItemInv(
 ////                        inventoryArrayList.get(msg).getNamaBarang(),
@@ -77,9 +77,9 @@ public class History extends AppCompatActivity {
 ////                        inventoryArrayList.get(msg).getStokAkhir(),
 ////                        inventoryArrayList.get(msg).getKey()                        );
 ////                fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
-//            }*/
-//        });
-//        adapter.arrayListHistory.clear();
+           }
+       });
+        adapter.arrayListHistory.clear();
 
         listView = findViewById(R.id.ListHistory);
         listView.setAdapter(adapter);

@@ -19,16 +19,17 @@ import java.util.List;
 public class invAdapterHistory<context> extends ArrayAdapter<HistoryData> {
 
     Context context;
-//    private AdapterInventory.OnClickListener mListener;
+   private OnClickListener mListener;
 //    private AdapterInventory.OnClickListenerDel mListenerDel;
 //    private AdapterInventory.OnClickListenerHistory mListenerHistory;
     public List<HistoryData> arrayListHistory;
 //    public Integer ambil = 0;
     public DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Inventory");
 
-    public invAdapterHistory(@NonNull Context context, List<HistoryData> arrayListHistory, invAdapterHistory.OnClickListener mListener) {
+    public invAdapterHistory(@NonNull Context context, List<HistoryData> arrayListHistory, OnClickListener mListener) {
         super(context, R.layout.activity_history_item, arrayListHistory);
 
+        this.mListener = mListener;
         this.context = context;
 
     }
@@ -62,6 +63,7 @@ public class invAdapterHistory<context> extends ArrayAdapter<HistoryData> {
         return view;
     }
 
-    public class OnClickListener {
+    public interface OnClickListener {
+        public void onClick(Integer message);
     }
 }
