@@ -56,9 +56,9 @@ public class invAdapterHistory<context> extends ArrayAdapter<HistoryData> {
 //            }
 //        });
 
-        date.setText("Tempat  :"+arrayListHistory.get(position).getDateAmbil());
-        ambil.setText("Type       :"+arrayListHistory.get(position).getAmbil());
-        sisaStok.setText("Sn          :"+arrayListHistory.get(position).getStokAkhir());
+        date.setText("Date  :"+arrayListHistory.get(position).getDateAmbil());
+        ambil.setText("Ambil       :"+arrayListHistory.get(position).getAmbil());
+        sisaStok.setText("Sisa Stok          :"+arrayListHistory.get(position).getStokAkhir());
 
 
         return view;

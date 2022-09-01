@@ -15,6 +15,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import androidx.navigation.NavController;
@@ -43,6 +44,7 @@ public class History extends AppCompatActivity {
     String invKey = "";
     public FirebaseDatabase database;
     public DatabaseReference ref;
+    ImageButton hisHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +62,7 @@ public class History extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         ref = database.getReference("Inventory");
-
+        hisHome = findViewById(R.id.hisHome);
 
         adapter = new invAdapterHistory(this, historyDataArrayList, new invAdapterHistory.OnClickListener() {
 //
@@ -79,11 +81,18 @@ public class History extends AppCompatActivity {
 ////                fragItemInv.show(getSupportFragmentManager(), "activity_frag_item_inventory");
            }
        });
+
         adapter.arrayListHistory.clear();
 
         listView = findViewById(R.id.ListHistory);
         listView.setAdapter(adapter);
 
+        hisHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(History.this,Home.class));
+            }
+        });
         getData();
     }
     public static ArrayList<HistoryData> historyDataArrayList = new ArrayList<>();

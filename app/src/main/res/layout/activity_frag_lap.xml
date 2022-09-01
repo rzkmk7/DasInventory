@@ -2,69 +2,132 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout3"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
-    >
+    android:layout_height="match_parent"
+    android:minWidth="1000dp"
+    android:minHeight="300dp">
 
-    <TextView
-        android:id="@+id/ed_tgl_laporan"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="left|center"
-        android:hint="Tanggal Laporan"
-        android:textSize="18dp"
+        android:layout_height="300dp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/ed_typeMesin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Type Mesin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_tgl_laporan" />
+        <TextView
+            android:id="@+id/textViewl1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="Date Input    :"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/ed_tempat_laporan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:hint="tempat"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_typeMesin" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/ed_att"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:hint="ATT"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_tempat_laporan" />
+        <TextView
+            android:id="@+id/ed_tgl_laporan"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="32dp"
+            android:gravity="left|center"
+            android:hint="Tanggal Laporan"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/textViewl1"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_edLaporanSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="48dp"
-        android:hint="save"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_att" />
+
+        <TextView
+            android:id="@+id/textViewl2"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Type Mesin  :"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewl1" />
+
+        <EditText
+            android:id="@+id/ed_typeMesin"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center|left"
+            android:hint="Type Mesin"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/textViewl2"
+            app:layout_constraintTop_toBottomOf="@+id/ed_tgl_laporan" />
+
+
+        <TextView
+            android:id="@+id/textViewl3"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Tempat         :"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewl2" />
+
+        <EditText
+            android:id="@+id/ed_tempat_laporan"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center|left"
+            android:hint="tempat"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/textViewl3"
+            app:layout_constraintTop_toBottomOf="@+id/ed_typeMesin" />
+
+        <TextView
+            android:id="@+id/textViewl4"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Att                  :"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewl3" />
+
+        <EditText
+            android:id="@+id/ed_att"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:gravity="left|center"
+            android:hint="ATT"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/textViewl4"
+            app:layout_constraintTop_toBottomOf="@+id/ed_tempat_laporan" />
+
+
+        <Button
+            android:id="@+id/btn_edLaporanSave"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:hint="save"
+            android:textColor="@color/white"
+            android:textColorHint="#FDFCFC"
+            android:textColorLink="@android:color/white"
+            app:iconTint="#FAFAFA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_att" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
