@@ -45,6 +45,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Inventory extends AppCompatActivity {
@@ -162,7 +164,9 @@ public class Inventory extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                searchByName("Jaa");
-                exportDataIntoWorkbook(context, "lul.xlsx", inventoryArrayList);
+                Date currentTime = Calendar.getInstance().getTime();
+                String currentTimeString = currentTime.toString();
+                exportDataIntoWorkbook(context, "lul-" + currentTimeString + ".xlsx", inventoryArrayList);
             }
         });
 
