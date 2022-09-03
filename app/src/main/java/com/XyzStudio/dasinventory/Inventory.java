@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
@@ -165,8 +166,16 @@ public class Inventory extends AppCompatActivity {
             public void onClick(View v) {
 //                searchByName("Jaa");
                 Date currentTime = Calendar.getInstance().getTime();
-                String currentTimeString = currentTime.toString();
-                exportDataIntoWorkbook(context, "lul-" + currentTimeString + ".xlsx", inventoryArrayList);
+                String currentTimeString = currentTime.toString().replaceAll(":", ".");
+                boolean exportSuccess = exportDataIntoWorkbook(context, "lul-" + currentTimeString + ".xlsx", inventoryArrayList);
+                if(exportSuccess)
+                {
+                    Toast.makeText(getApplicationContext(), "Export Sukses", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "Export Failed", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
