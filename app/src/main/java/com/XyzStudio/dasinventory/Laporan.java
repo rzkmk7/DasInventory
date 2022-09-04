@@ -43,6 +43,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Laporan extends AppCompatActivity {
@@ -124,8 +126,19 @@ public class Laporan extends AppCompatActivity {
         expLap.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //export laporan4
-                exportDataIntoWorkbook(context, "llllllll.xlsx", laporanArrayList);
+                Date currentTime = Calendar.getInstance().getTime();
+                String currentTimeString = currentTime.toString().replaceAll(":", ".");
+                boolean exportSuccess = exportDataIntoWorkbook(context, "Laporan-" + currentTimeString + ".xls", laporanArrayList);
+                if(exportSuccess)
+                {
+                    Toast.makeText(getApplicationContext(), "Export Sukses", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "Export Failed", Toast.LENGTH_LONG).show();
+                }
             }
+
         });
 
         dellAllLap.setOnClickListener(new View.OnClickListener() {

@@ -167,7 +167,7 @@ public class Inventory extends AppCompatActivity {
 //                searchByName("Jaa");
                 Date currentTime = Calendar.getInstance().getTime();
                 String currentTimeString = currentTime.toString().replaceAll(":", ".");
-                boolean exportSuccess = exportDataIntoWorkbook(context, "lul-" + currentTimeString + ".xlsx", inventoryArrayList);
+                boolean exportSuccess = exportDataIntoWorkbook(context, "Inventory-" + currentTimeString + ".xls", inventoryArrayList);
                 if(exportSuccess)
                 {
                     Toast.makeText(getApplicationContext(), "Export Sukses", Toast.LENGTH_SHORT).show();

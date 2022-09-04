@@ -61,7 +61,7 @@ dependencies {
     //implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
-    implementation files('libs\\poi-3.7.jar')
+    implementation files('libs/poi-3.7.jar')
 
 
     testImplementation 'junit:junit:4.+'
