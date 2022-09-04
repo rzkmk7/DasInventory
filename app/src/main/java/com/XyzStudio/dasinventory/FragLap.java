@@ -94,7 +94,7 @@ public class FragLap extends DialogFragment {
 //
 
 
-                    database.child(users.getUid()).child(key).setValue(new LaporanData(
+                    database.child(users.getUid()).child("Laporan").child(key).setValue(new LaporanData(
                             date,
                             tempatLap,
                             typeLap,
@@ -104,7 +104,7 @@ public class FragLap extends DialogFragment {
                         @Override
                         public void onSuccess(Void aVoid) {
                             dismiss();
-                            ((BillingMachine)getActivity()).refresh();
+                            ((Laporan)getActivity()).refresh();
                             Toast.makeText(view.getContext(), "Data Tersimpan", Toast.LENGTH_SHORT).show();
                         }
                     }));
